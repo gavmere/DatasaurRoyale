@@ -1,6 +1,7 @@
 import pygame
 import random
-
+import dinosaur
+import DinoFunctions
 class SinglePlayerHerbivoreSim:
     def __init__(self):
         # Initialize Pygame 
@@ -59,19 +60,20 @@ class SinglePlayerHerbivoreSim:
     def handle_player_movement(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and self.player_x > 0:
-            self.player_x -= 1
+            self.player_x -= self.speed
         elif keys[pygame.K_RIGHT] and self.player_x < self.grid_width - 1:
-            self.player_x += 1
+            self.player_x += self.speed
         elif keys[pygame.K_UP] and self.player_y > 0:
-            self.player_y -= 1
+            self.player_y -= self.speed
         elif keys[pygame.K_DOWN] and self.player_y < self.grid_height - 1:
-            self.player_y += 1
+            self.player_y += self.speed
 
     def check_collisions(self):
         for i, (green_x, green_y) in enumerate(self.green_squares):
             if self.player_x == green_x and self.player_y == green_y:
                 self.green_squares.pop(i)
                 self.score += 1
+                DinoFunctions.eatPlant(self,10)
 
         if (self.player_x, self.player_y) in self.walls:
             self.player_x = self.grid_width // 2
