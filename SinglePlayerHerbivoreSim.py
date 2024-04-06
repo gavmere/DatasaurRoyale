@@ -60,12 +60,16 @@ class SinglePlayerHerbivoreSim:
     def handle_player_movement(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and self.player_x > 0:
+            self.actionV -= 2*self.actionC
             self.player_x -= self.speed
         elif keys[pygame.K_RIGHT] and self.player_x < self.grid_width - 1:
+            self.actionV -= 2*self.actionC
             self.player_x += self.speed
         elif keys[pygame.K_UP] and self.player_y > 0:
+            self.actionV -= 2*self.actionC
             self.player_y -= self.speed
         elif keys[pygame.K_DOWN] and self.player_y < self.grid_height - 1:
+            self.actionV -= 2*self.actionC
             self.player_y += self.speed
 
     def check_collisions(self):
