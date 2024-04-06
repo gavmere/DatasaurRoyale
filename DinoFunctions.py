@@ -7,13 +7,9 @@ def calcFeatureScalar(dino):
 
 def eatOtherGuy(dino, calVal):
     dino.energy += calVal*dino.carnVal
-    return
-
 
 def eatPlant(dino, calVal):
     dino.energy += calVal*dino.herbVal
-    return
-
 
 def combatSimulation(dinoOne, dinoTwo):
     # power calculations:
@@ -31,17 +27,17 @@ def combatSimulation(dinoOne, dinoTwo):
             dinoTwo.isAlive = False
             eatOtherGuy(dinoOne, dinoTwo.kcal)
         else:
-            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100)
+            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) - dinoTwo.defense
     elif (powerOne < powerTwo):
         if victorValue >= 100:
             dinoOne.isAlive = False
             eatOtherGuy(dinoTwo, dinoOne.kcal)
         else:
-            dinoOne.currHealth = dinoTwo.currHealth * (victorValue/100)
+            dinoOne.currHealth = dinoOne.currHealth * (victorValue/100) - dinoOne.defense
     else:
         if victorValue >= 100:
             dinoTwo.isAlive = False
             dinoOne.isAlive = False
         else:
-            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100)
-            dinoOne.currHealth = dinoTwo.currHealth * (victorValue/100)
+            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) - dinoTwo.defense
+            dinoOne.currHealth = dinoTwo.currHealth * (victorValue/100) - dinoOne.defense
