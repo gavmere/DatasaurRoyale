@@ -1,10 +1,14 @@
 import DinoFunctions
 import Dinosaur
+import random
 
 def createDino():
-    newDino = 
+    newDino = Dinosaur.dinosaur([])
     return newDino
-def populateDinoList():
-    DinoList = []
-    return DinoList
+
+def populateDinoList(num, parent=None):
+    dinoList = []
+    for i in range(num):
+        
+    return dinoList
     
