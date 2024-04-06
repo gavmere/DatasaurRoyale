@@ -53,6 +53,9 @@ class dinosaur:
                                'Flying' : 0.75,
                                None : 0,
                                'Long': 1}
+        self.energy = 100 * self.energyModifiers[self.traits['Size']] * self.energyModifiers[self.traits['Mobility']] * self.energyModifiers[self.traits['Neck']]
+
+        
         
     
 
