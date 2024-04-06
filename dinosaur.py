@@ -31,8 +31,9 @@ class dinosaur:
             'Flying' : 1,
             None : 0,
             'Mobile Tail': 1,
-            'Attack Tail' : -1}
-        self.speed = 4 + self.speedModifiers[self.traits['Size']] + self.speedModifiers[self.traits['Mobility']] + self.speedModifiers[self.traits['Tail']]
+            'Attack Tail' : -1,
+            'Long' : -1}
+        self.speed = 4 + self.speedModifiers[self.traits['Size']] + self.speedModifiers[self.traits['Mobility']] + self.speedModifiers[self.traits['Tail']] + self.speedModifiers[self.traits['Neck']]
 
         #Setting up energy
         self.energyModifier = {
@@ -46,6 +47,7 @@ class dinosaur:
             'Long': 1}
         self.energy = 100 * self.energyModifiers[self.traits['Size']] * self.energyModifiers[self.traits['Mobility']] * self.energyModifiers[self.traits['Neck']]
 
+        #Setting up Power
         self.powerModifier = {
             'Large' : 10,
             'Medium' : 5,
@@ -54,4 +56,11 @@ class dinosaur:
         self.power *= self.energyModifiers[self.traits['Size']]
         
     def child(self,other):
-        ...    
+        if self.energy > 20:
+            new_traits = self.traits
+            for i in new_traits.values():
+                if i[1] == None:
+                    new_traits[i[0]] = other.traits[i[0]]
+            return dinosaur(new_traits)
+        else:
+            return
