@@ -1,97 +1,130 @@
 import pygame
 import random
 
-# Initialize Pygame
-pygame.init()
+class SinglePlayerHerbivoreSim:
+    def __init__(self):
+        # Initialize Pygame 
+        pygame.init()
 
-# Set up the window
-window_width = 800
-window_height = 600
-screen = pygame.display.set_mode((window_width, window_height))
-pygame.display.set_caption("Grid Movement")
+        # Set up the window
+        self.window_width = 800
+        self.window_height = 600
+        self.screen = pygame.display.set_mode((self.window_width, self.window_height))
+        pygame.display.set_caption("Grid Movement")
 
-# Grid settings
-grid_size = 20
-grid_width = window_width // grid_size
-grid_height = window_height // grid_size
-grid_color = (128, 128, 128)
+        # Grid settings
+        self.grid_size = 20
+        self.grid_width = self.window_width // self.grid_size
+        self.grid_height = self.window_height // self.grid_size
+        self.grid_color = (128, 128, 128)
 
-# Player settings
-player_size = 20
-player_color = (255, 0, 0)
-player_x = grid_width // 2
-player_y = grid_height // 2
+        # Player settings
+        self.player_size = 20
+        self.player_color = (255, 0, 0)
+        self.player_x = 1
+        self.player_y = 1
 
-# Green square settings
-green_squares = []
-for _ in range(40):
-    new_x = random.randint(0, grid_width - 1)
-    new_y = random.randint(0, grid_height - 1)
-    green_squares.append((new_x, new_y))
-green_square_size = 16
-green_square_color = (0, 255, 0)
+        # Wall settings
+        self.wall_size = 20
+        self.wall_color = (0, 0, 0)
+        self.walls = [(0, i) for i in range(self.grid_height)]
+        self.walls.extend([(self.grid_width - 1, i) for i in range(self.grid_height)])
+        self.walls.extend([(i, 0) for i in range(self.grid_width)])
+        self.walls.extend([(i, self.grid_height - 1) for i in range(self.grid_width)])
 
-# Score settings
-score = 0
-score_font = pygame.font.Font(None, 36)
-score_color = (255, 255, 255)
-score_x = 10
-score_y = 10
+        # Green square settings
+        self.green_squares = []
+        for _ in range(40):
+            new_x = random.randint(0, self.grid_width - 1)
+            new_y = random.randint(0, self.grid_height - 1)
+            self.green_squares.append((new_x, new_y))
+        self.green_square_size = 16
+        self.green_square_color = (0, 255, 0)
 
-# Game loop
-running = True
-while running:
-    # Handle events
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+        # Score settings
+        self.score = 0
+        self.score_font = pygame.font.Font(None, 36)
+        self.score_color = (255, 255, 255)
+        self.score_x = 10
+        self.score_y = 10
 
-    # Handle player movement
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT] and player_x > 0:
-        player_x -= 1
-    elif keys[pygame.K_RIGHT] and player_x < grid_width - 1:
-        player_x += 1
-    elif keys[pygame.K_UP] and player_y > 0:
-        player_y -= 1
-    elif keys[pygame.K_DOWN] and player_y < grid_height - 1:
-        player_y += 1
+        # Game loop
+        self.running = True
 
-    # Check for player collisions with green squares
-    for i, (green_x, green_y) in enumerate(green_squares):
-        if player_x == green_x and player_y == green_y:
-            green_squares.pop(i)
-            score += 1
+    def handle_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
 
-    # Clear the screen
-    screen.fill((0, 0, 0))
+    def handle_player_movement(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT] and self.player_x > 0:
+            self.player_x -= 1
+        elif keys[pygame.K_RIGHT] and self.player_x < self.grid_width - 1:
+            self.player_x += 1
+        elif keys[pygame.K_UP] and self.player_y > 0:
+            self.player_y -= 1
+        elif keys[pygame.K_DOWN] and self.player_y < self.grid_height - 1:
+            self.player_y += 1
 
-    # Draw the grid
-    for x in range(grid_width):
-        for y in range(grid_height):
-            rect = pygame.Rect(x * grid_size, y * grid_size, grid_size, grid_size)
-            pygame.draw.rect(screen, grid_color, rect, 1)
+    def check_collisions(self):
+        for i, (green_x, green_y) in enumerate(self.green_squares):
+            if self.player_x == green_x and self.player_y == green_y:
+                self.green_squares.pop(i)
+                self.score += 1
 
-    # Draw the green squares
-    for green_x, green_y in green_squares:
-        green_rect = pygame.Rect(green_x * grid_size + (grid_size - green_square_size) // 2,
-                                green_y * grid_size + (grid_size - green_square_size) // 2,
-                                green_square_size, green_square_size)
-        pygame.draw.rect(screen, green_square_color, green_rect)
+        if (self.player_x, self.player_y) in self.walls:
+            self.player_x = self.grid_width // 2
+            self.player_y = self.grid_height // 2
 
-    # Draw the player
-    player_rect = pygame.Rect(player_x * grid_size, player_y * grid_size, player_size, player_size)
-    pygame.draw.rect(screen, player_color, player_rect)
+    def draw_grid(self):
+        for x in range(self.grid_width):
+            for y in range(self.grid_height):
+                rect = pygame.Rect(x * self.grid_size, y * self.grid_size, self.grid_size, self.grid_size)
+                pygame.draw.rect(self.screen, self.grid_color, rect, 1)
 
-    # Draw the score
-    score_text = score_font.render(f"Score: {score}", True, score_color)
-    screen.blit(score_text, (score_x, score_y))
+    def draw_green_squares(self):
+        for green_x, green_y in self.green_squares:
+            green_rect = pygame.Rect(green_x * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                     green_y * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                     self.green_square_size, self.green_square_size)
+            pygame.draw.rect(self.screen, self.green_square_color, green_rect)
 
-    # Update the display
-    pygame.display.flip()
+    def draw_walls(self):
+        for wallX, wallY in self.walls:
+            wallRect = pygame.Rect(wallX * self.grid_size, wallY * self.grid_size, self.grid_size, self.grid_size)
+            pygame.draw.rect(self.screen, self.wall_color, wallRect)
 
-    # Add a small delay to slow down the movement
-    pygame.time.delay(100)
+    def draw_player(self):
+        player_rect = pygame.Rect(self.player_x * self.grid_size, self.player_y * self.grid_size,
+                                  self.player_size, self.player_size)
+        pygame.draw.rect(self.screen, self.player_color, player_rect)
 
-# Quit Pygame
-pygame.quit()
+    def draw_score(self):
+        score_text = self.score_font.render(f"Score: {self.score}", True, self.score_color)
+        self.screen.blit(score_text, (self.score_x, self.score_y))
+
+    def update_display(self):
+        pygame.display.flip()
+
+    def run(self):
+        while self.running:
+            self.handle_events()
+            self.handle_player_movement()
+            self.check_collisions()
+
+            self.screen.fill((0, 0, 0))
+            self.draw_grid()
+            self.draw_green_squares()
+            self.draw_walls()
+            self.draw_player()
+            self.draw_score()
+            self.update_display()
+
+            pygame.time.delay(100)
+
+        pygame.quit()
+
+# Create an instance of the SinglePlayerHerbivoreSim class and run the game
+game = SinglePlayerHerbivoreSim()
+game.run()
