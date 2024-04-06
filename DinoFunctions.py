@@ -11,6 +11,12 @@ def eatOtherGuy(dino, calVal):
 def eatPlant(dino, calVal):
     dino.energy += calVal*dino.herbVal
 
+def stepStill(dino):
+    dino.energy -= 1*dino.actionC
+
+def stepMove(dino):
+    dino.energy -= 2*dino.actionC
+
 def combatSimulation(dinoOne, dinoTwo):
     # power calculations:
     powerOne = dinoOne.size * (dinoOne.currHealth/dinoOne.totalHealth) * \
