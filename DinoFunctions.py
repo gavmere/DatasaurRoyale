@@ -6,16 +6,25 @@ def calcFeatureScalar(dino):
 
 
 def eatOtherGuy(dino, calVal):
-    dino.energy += calVal*dino.carnVal
+    dino.actionV += calVal*dino.carnVal
 
 def eatPlant(dino, calVal):
-    dino.energy += calVal*dino.herbVal
+    dino.actionV += calVal*dino.herbVal
 
 def stepStill(dino):
-    dino.energy -= 1*dino.actionC
+    dino.actionV -= 1*dino.actionC
 
-def stepMove(dino):
-    dino.energy -= 2*dino.actionC
+def stepMoveUp(dino):
+    dino.actionV -= 2*dino.actionC
+
+def stepMoveDown(dino):
+    dino.actionV -= 2*dino.actionC
+    
+def stepMoveLeft(dino):
+    dino.actionV -= 2*dino.actionC
+
+def stepMoveRight(dino):
+    dino.actionV -= 2*dino.actionC
 
 def combatSimulation(dinoOne, dinoTwo):
     # power calculations:
