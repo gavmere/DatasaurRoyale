@@ -40,13 +40,13 @@ def combatSimulation(dinoOne, dinoTwo):
     if (powerOne > powerTwo):
         if victorValue >= 100:
             dinoTwo.isAlive = False
-            eatOtherGuy(dinoOne, dinoTwo.kcal)
+            eatOtherGuy(dinoOne, dinoTwo.energyConsumption)
         else:
             dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) + dinoTwo.defense 
     elif (powerOne < powerTwo):
         if victorValue >= 100:
             dinoOne.isAlive = False
-            eatOtherGuy(dinoTwo, dinoOne.kcal)
+            eatOtherGuy(dinoTwo, dinoOne.energyConsumption)
         else:
             dinoOne.currHealth = dinoOne.currHealth * (victorValue/100) + dinoOne.defense
     else:
