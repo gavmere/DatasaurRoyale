@@ -1,6 +1,6 @@
 import pygame
 import random
-import dinosaur
+import Dinosaur
 import DinoFunctions
 class SinglePlayerHerbivoreSim:
     def __init__(self):
