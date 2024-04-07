@@ -1,5 +1,11 @@
+import random
 class Dinosaur:
     def __init__(self, **traits) -> None:
+        #gamestats:
+        self.dino_size = 20
+        self.dino_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        self.dino_x = random.randint(0, (800//20 - 2))
+        self.dino_y = random.randint(0, (600//20 - 2))
         # Stats
         self.currHealth = 100
         self.totalHealth = 100
@@ -107,3 +113,11 @@ class Dinosaur:
             return Dinosaur(new_traits)
         else:
             return
+
+
+#INHERIT THIS CLASS TO MAKE BEHAVIORS        
+class Behavior():
+    def calculateNextStep(observation):
+        return
+    
+    

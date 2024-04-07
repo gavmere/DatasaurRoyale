@@ -1,5 +1,6 @@
 import pygame
 import random
+from GameFunctions import populateDinoList
 
 class SinglePlayerHerbivoreSim:
     def __init__(self, autonomous = False):
@@ -18,18 +19,10 @@ class SinglePlayerHerbivoreSim:
         self.grid_width = self.window_width // self.grid_size
         self.grid_height = self.window_height // self.grid_size
         self.grid_color = (128, 128, 128)
-
-        # Player settings
-        self.player_size = 20
-        self.player_color = (255, 0, 0)
-        self.player_x = self.grid_width // 4
-        self.player_y = self.grid_width // 4
         
-        # Enemy Settings
-        self.enemy_size = 20
-        self.enemy_color = (0, 0, 255)
-        self.enemy_x = self.grid_width // 2
-        self.enemy_y = self.grid_width // 2 
+        #all dino settings
+        self.dinos = populateDinoList(16)
+        self.dino_pos = []
 
         # Wall settings
         self.wall_size = 20
@@ -70,9 +63,9 @@ class SinglePlayerHerbivoreSim:
 
         for x in range(self.grid_width):
             for y in range(self.grid_height):
-                if (x, y) not in self.green_squares and (x, y) != (self.player_x, self.player_y):
+                if (x, y) not in self.green_squares and (x, y) != (self.dino_x, self.dino_y):
                     empty_spaces.append((x, y))
-                elif (x, y) == (self.player_x, self.player_y):
+                elif (x, y) == (self.dino_x, self.dino_y):
                     red_box_spaces.append((x, y))
                 elif (x, y) in self.walls:
                     wall_spaces.append((x, y))
@@ -85,60 +78,64 @@ class SinglePlayerHerbivoreSim:
         
         return observation
 
-    def handle_player_movement(self, action=None):
+    def handle_dino_movement(self, dino, action=None):
         if not self.isAuto:
             keys = pygame.key.get_pressed()
-            if keys[pygame.K_LEFT] and self.player_x > 0:
-                self.player_x -= 1
-            elif keys[pygame.K_RIGHT] and self.player_x < self.grid_width - 1:
-                self.player_x += 1
-            elif keys[pygame.K_UP] and self.player_y > 0:
-                self.player_y -= 1
-            elif keys[pygame.K_DOWN] and self.player_y < self.grid_height - 1:
-                self.player_y += 1
+            if keys[pygame.K_LEFT] and dino.dino_x > 0:
+                dino.dino_x -= 1
+            elif keys[pygame.K_RIGHT] and dino.dino_x < self.grid_width - 1:
+                dino.dino_x += 1
+            elif keys[pygame.K_UP] and dino.dino_y > 0:
+                dino.dino_y -= 1
+            elif keys[pygame.K_DOWN] and dino.dino_y < self.grid_height - 1:
+                dino.dino_y += 1
         else:
             if not action:
                 Exception('YOU FUCKIN DUMBASS')
-            if action == 'left' and self.player_x > 0:
-                self.player_x -= 1
-            elif action == 'right' and self.player_x < self.grid_width - 1:
-                self.player_x += 1
-            elif action == 'up' and self.player_y > 0:
-                self.player_y -= 1
-            elif action == 'down' and self.player_y < self.grid_height - 1:
-                self.player_y += 1
+            if action == 'left' and dino.dino_x > 0:
+                dino.dino_x -= 1
+            elif action == 'right' and dino.dino_x < self.grid_width - 1:
+                dino.dino_x += 1
+            elif action == 'up' and dino.dino_y > 0:
+                dino.dino_y -= 1
+            elif action == 'down' and dino.dino_y < self.grid_height - 1:
+                dino.dino_y += 1
             
 
-    def handle_user_behavior(self):
+    def handle_dino_behavior(self, dino):
         if not self.isAuto:
-            self.handle_player_movement()
+            self.handle_dino_movement(dino)
 
         possible_actions = ['left', 'right', 'up', 'down']
         valid_actions = []
 
         for action in possible_actions:
-            if (action == 'left' and (self.player_x-1, self.player_y) not in self.walls) or \
-               (action == 'right' and (self.player_x+1, self.player_y) not in self.walls) or \
-               (action == 'up' and (self.player_x, self.player_y-1) not in self.walls) or \
-               (action == 'down' and (self.player_x, self.player_y+1) not in self.walls):
+            if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in self.walls) or \
+            (action == 'right' and (dino.dino_x+1, dino.dino_y) not in self.walls) or \
+            (action == 'up' and (dino.dino_x, dino.dino_y-1) not in self.walls) or \
+            (action == 'down' and (dino.dino_x, dino.dino_y+1) not in self.walls):
                 valid_actions.append(action)
 
         if valid_actions:
             action = random.choice(valid_actions)
-            self.handle_player_movement(action)
+            self.handle_dino_movement(dino, action)
 
-    def check_collisions(self):
+    def update_all_Dino_pos(self):
+        self.dino_pos = []
+        for dino in self.dinos:
+            self.dino_pos.append((dino.dino_x, dino.dino_y))
+            
+    def check_collisions(self, dino):
         for i, (green_x, green_y) in enumerate(self.green_squares):
-            if self.player_x == green_x and self.player_y == green_y:
+            if dino.dino_x == green_x and dino.dino_y == green_y:
                 self.green_squares.pop(i)
                 self.score += 1
 
-        if (self.player_x, self.player_y) in self.walls:
-            self.player_x = self.grid_width // 2
-            self.player_y = self.grid_height // 2
+        if (dino.dino_x, dino.dino_y) in self.walls:
+            dino.dino_x = self.grid_width // 2
+            dino.dino_y = self.grid_height // 2
 
-        if self.player_x == self.enemy_x and self.player_y == self.enemy_y:
-            self.running = False
+        #IMPLEMENT DINO COLLLISION HERE
 
     def draw_grid(self):
         for x in range(self.grid_width):
@@ -158,15 +155,10 @@ class SinglePlayerHerbivoreSim:
             wallRect = pygame.Rect(wallX * self.grid_size, wallY * self.grid_size, self.grid_size, self.grid_size)
             pygame.draw.rect(self.screen, self.wall_color, wallRect)
 
-    def draw_player(self):
-        player_rect = pygame.Rect(self.player_x * self.grid_size, self.player_y * self.grid_size,
-                                  self.player_size, self.player_size)
-        pygame.draw.rect(self.screen, self.player_color, player_rect)
-    
-    def draw_enemy(self):
-        enemy_rect = pygame.Rect(self.enemy_x * self.grid_size, self.enemy_y * self.grid_size,
-                                 self.enemy_size, self.enemy_size)
-        pygame.draw.rect(self.screen, self.enemy_color, enemy_rect)
+    def draw_dino(self, dino):
+        player_rect = pygame.Rect(dino.dino_x * self.grid_size, dino.dino_y * self.grid_size,
+                                  self.grid_size, self.grid_size)
+        pygame.draw.rect(self.screen, dino.dino_color, player_rect)
 
     def draw_score(self):
         score_text = self.score_font.render(f"Score: {self.score}", True, self.score_color)
@@ -177,23 +169,25 @@ class SinglePlayerHerbivoreSim:
 
     def run(self):
         while self.running:
-            self.handle_events()
-            self.handle_user_behavior()  # Call the new method to handle user-defined behavior
-            self.check_collisions()
-
             self.screen.fill((0, 0, 0))
-            self.draw_grid()
-            self.draw_green_squares()
             self.draw_walls()
-            self.draw_player()
-            self.draw_enemy() 
-            self.draw_score()
+            self.draw_grid()
+            self.handle_events()
+            for dino in self.dinos:
+                self.handle_dino_behavior(dino)  # Call the new method to handle user-defined behavior
+                self.check_collisions(dino)
+                self.draw_dino(dino)
+                self.draw_green_squares()
+                self.draw_score()
+                self.update_all_Dino_pos()
             self.update_display()
 
-            pygame.time.delay(1)
+            pygame.time.delay(100)
 
         pygame.quit()
 
+
+    
 # Create an instance of the SinglePlayerHerbivoreSim class and run the game
 game = SinglePlayerHerbivoreSim(autonomous=True)
 game.run()
