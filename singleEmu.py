@@ -57,13 +57,16 @@ class SinglePlayerHerbivoreSim:
                 self.running = False
                 
     def report_observation(self):
+        dino_spaces = []
         empty_spaces = []
         red_box_spaces = []
         wall_spaces = []
 
         for x in range(self.grid_width):
             for y in range(self.grid_height):
-                if (x, y) not in self.green_squares and (x, y) != (self.dino_x, self.dino_y):
+                if (x, y) in self.dino_pos:
+                    dino_spaces.append((x, y))
+                elif (x, y) not in self.green_squares and (x, y) != (self.dino_x, self.dino_y):
                     empty_spaces.append((x, y))
                 elif (x, y) == (self.dino_x, self.dino_y):
                     red_box_spaces.append((x, y))
@@ -71,6 +74,7 @@ class SinglePlayerHerbivoreSim:
                     wall_spaces.append((x, y))
 
         observation = {
+            'dino_spaces': dino_spaces,
             'empty_spaces': empty_spaces,
             'red_box_spaces': red_box_spaces,
             'wall_spaces': wall_spaces
@@ -135,7 +139,8 @@ class SinglePlayerHerbivoreSim:
             dino.dino_x = self.grid_width // 2
             dino.dino_y = self.grid_height // 2
 
-        #IMPLEMENT DINO COLLLISION HERE
+        if ((dino.dino_x, dino.dino_y) in self.dino_pos) and ((dino.dino_x, dino.dino_y) != self.dino_pos[dino]):
+            
 
     def draw_grid(self):
         for x in range(self.grid_width):
