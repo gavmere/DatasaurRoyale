@@ -2,7 +2,7 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
-from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, getStats
 
 
 class Fullsimulation:
@@ -18,7 +18,10 @@ class Fullsimulation:
     score_y = 10
     defaultNumPlants = 40
 
-    def __init__(self, autonomous=False):
+    def __init__(self, autonomous=False, funmode = False):
+        self.funmode = funmode
+        self.green_square_image = pygame.image.load("image.png")
+        self.green_square_image = pygame.transform.scale(self.green_square_image, (self.green_square_size, self.green_square_size))
         self.isAuto = autonomous
         self.screen = pygame.display.set_mode(
             (self.window_width, self.window_height))
@@ -43,6 +46,8 @@ class Fullsimulation:
         self.green_squares = []
         self.generate_new_plants(self.defaultNumPlants)
         self.score = 0
+        self.currGeneration = 0
+        self.logfile = open('winnerlog.txt', 'w')
 
     def generate_new_plants(self, numPlants=None):
         if not numPlants:
@@ -122,40 +127,18 @@ class Fullsimulation:
         if (dino.dino_x, dino.dino_y) in self.walls:
             self.death.append(dino)
             self.dinos.remove(dino)
-        if dino:
+        if dino in self.dinos:
             for new_dino in [self.dinos[i] for i, (x,y) in enumerate(self.dino_pos) if x == dino.dino_x and y == dino.dino_y and dino != self.dinos[i]]:
                 DinoFunctions.combatSimulation(dino,new_dino)
                 if not dino.isAlive:
                     new_dino.energy += dino.energyConsumption * new_dino.carnVal
                     self.death.append(dino)
                     self.dinos.remove(dino)
-                    break
                 elif not new_dino.isAlive:
                     dino.energy += new_dino.energyConsumption * dino.carnVal
                     self.death.append(new_dino)
                     self.dinos.remove(new_dino)
-        
-        """
-        indices = [i for i, (x, y) in enumerate(
-            self.dino_pos) if x == dino.dino_x and y == dino.dino_y]
-        dino_battle = [self.dinos[i] for i in indices]
-        for i in dino_battle:
-            if not dino in self.dinos:
-                break
-            newDino = dino
-            if i != newDino:
-                DinoFunctions.combatSimulation(newDino, i)
-                if not dino.isAlive:
-                    newDino = i
-                    newDino.energy += dino.energyConsumption * newDino.carnVal
-                    self.death.append(dino)
-                    self.dinos.remove(dino)
-                elif not i.isAlive:
-                    dino.energy += i.energyConsumption * dino.carnVal
-                    self.death.append(i)
-                    self.dinos.remove(i)
-                    """
-
+    
     def draw_grid(self):
         for x in range(self.grid_width):
             for y in range(self.grid_height):
@@ -163,6 +146,18 @@ class Fullsimulation:
                                    self.grid_size, self.grid_size, self.grid_size)
                 pygame.draw.rect(self.screen, self.grid_color, rect, 1)
 
+    def draw_green_squares_spritemode(self):
+        for green_x, green_y in self.green_squares:
+            green_rect = pygame.Rect(green_x * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                    green_y * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                    self.green_square_size, self.green_square_size)
+            self.screen.blit(self.green_square_image, green_rect)
+    def draw_green_squares(self):
+        for green_x, green_y in self.green_squares:
+            green_rect = pygame.Rect(green_x * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                    green_y * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                    self.green_square_size, self.green_square_size)
+            self.screen.blit(self.green_square_image, green_rect)
     def draw_green_squares(self):
         for green_x, green_y in self.green_squares:
             green_rect = pygame.Rect(green_x * self.grid_size + (self.grid_size - self.green_square_size) // 2,
@@ -183,12 +178,26 @@ class Fullsimulation:
         pygame.draw.rect(self.screen, dino.dino_color, player_rect)
 
     def draw_score(self):
-        score_text = self.score_font.render(
-            f"Score: {self.score}", True, self.score_color)
+        score_text = self.score_font.render(f"Score: {self.score}", True, self.score_color)
         self.screen.blit(score_text, (self.score_x, self.score_y))
-
+    def draw_generation(self):
+        score_text = self.score_font.render(f"Generation: {self.currGeneration}", True, self.score_color)
+        self.screen.blit(score_text, (self.score_x, self.score_y))
+        
     def update_display(self):
         pygame.display.flip()
+    
+    def reset_game(self):
+        print(f'generation {self.currGeneration}:' + getStats(self.dinos[0]), file=self.logfile)
+        self.dinos = populateDinoList(16)
+        self.dino_pos = []
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav]
+        self.dino_behaviorFunc = {i: random.choice(self.behaviors) for i in self.dinos}
+        for dino in self.dinos:
+            dino.dino_walls = self.walls
+        self.green_squares = []
+        self.generate_new_plants(self.defaultNumPlants)
+        self.currGeneration += 1
 
     def observeState(self, currDino):
         other_dino_positions = []
@@ -237,17 +246,24 @@ class Fullsimulation:
                 self.check_collisions(dino)
                 if len(self.green_squares) == 0:
                     self.generate_new_plants()
+                if len(self.dinos) == 1:
+                    self.reset_game()
                 self.draw_dino(dino)
-                self.draw_green_squares()
-                self.draw_score()
+                
+                if self.funmode:
+                    self.draw_green_squares_spritemode()
+                else:
+                    self.draw_green_squares()
+                self.draw_generation()
                 self.update_all_Dino_pos()
             self.update_display()
-            pygame.time.delay(1)
-        self.death = self.death[8:]
-        print(self.death)
+            pygame.time.delay(16)
+        self.logfile.close()
         pygame.quit()
 
 
 # Create an instance of the Fullsimulation class and run the game
-game = Fullsimulation(autonomous=True)
+game = Fullsimulation(autonomous=True, funmode=True)
 game.run()
+
+

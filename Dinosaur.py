@@ -16,6 +16,7 @@ class Dinosaur:
         self.energyConsumption = 0
         self.power = 100
         self.isAlive = True
+        self.dino_behavior = None
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -125,16 +126,44 @@ class Dinosaur:
             50 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']])
 
     def child(self, other):
-        if self.energy > 20:
-            new_traits = self.traits
-            for i in new_traits.values():
-                if i[1] == None:
-                    new_traits[i[0]] = other.traits[i[0]]
-            return Dinosaur(new_traits)
-        else:
-            return
+        new_traits = self.traits
+        for i in new_traits.values():
+            if i[1] == None:
+                new_traits[i[0]] = other.traits[i[0]]
+
+        youngling = Dinosaur(new_traits)
+        youngling.dino_color = ((self.dino_color[0] + other.dino_color[0]) // 2, (self.dino_color[1] + other.dino_color[1]) // 2, (self.dino_color[2] + other.dino_color[2]) // 2)
+        return youngling
+
     def calculateNextStep(self, obs, behaviorfunc):
-        return behaviorfunc(self, obs)
+        if self.dino_behavior == None:
+            return behaviorfunc(self, obs)
+        else:
+            return self.dino_behavior(self,obs)
+
+def getStats(dino):
+    statList = ""
+    for trait in dino.traits.values():
+        statList += str(trait)
+        statList += ","
+    statList += str(dino.currHealth)
+    statList += ","
+    statList += str(dino.totalHealth)
+    statList += ","
+    statList += str(dino.carnVal)
+    statList += ","
+    statList += str(dino.herbVal)
+    statList += ","
+    statList += str(dino.energy)
+    statList += ","
+    statList += str(dino.energyConsumption)
+    statList += ","
+    statList += str(dino.power)
+    statList += ","
+    statList += str(dino.isAlive)
+
+    return statList
+
 
 def cowardDino(dino, obs):
     direction = goToNearestDino(dino, obs)
