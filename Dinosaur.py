@@ -37,11 +37,29 @@ class Dinosaur:
 
         # Setting up Power
         self.powerModifier = {
-            'Large': 10,
-            'Medium': 5,
+            #multiplier
+            'Large': 10, 
+            'Medium': 5, 
             'Small': 2,
+
+            #adding
+            'Beak' : 30,
+            'Herbivore Teeth' : 10,
+            'Carnivore Teeth' : 50,
+            'Spikes' : 15,
+            'Horns' : 30,
+            'Claws' : 50,
+            'Bipedal' : 30,
+            'Quadruped' : -10,
+            'Flying' : 20,
+            'Long' : - 30,
+            None : 0,
+            'Mobile Tail' : 10,
+            'Attack Tail' : 40
         }
-        self.power *= self.energyModifier[self.traits['Size']]
+        self.power *= self.powerModifier[self.traits['Size']]
+        self.power += self.powerModifier[self.traits['Mouth']] + self.powerModifier[self.traits['Mobility']] \
+        + self.powerModifier[self.traits['Combat']] + self.powerModifier[self.traits['Neck']] + self.powerModifier[self.traits['Tail']] 
 
         # Setting up carnVal
         self.carnValModifier = {
