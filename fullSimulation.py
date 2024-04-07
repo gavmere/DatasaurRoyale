@@ -1,7 +1,7 @@
 import pygame
 import random
 import DinoFunctions
-from GameFunctions import populateDinoList
+from GameFunctions import populateDinoList, createDino
 from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, getStats, copDino, colorblindDino, maxConsumption, minConsumption, greenPreferred, dinoPreferred, wallHugger, scavanger
 
 
@@ -31,7 +31,7 @@ class Fullsimulation:
         self.grid_height = self.window_height // self.grid_size
         self.score_font = pygame.font.Font(None, 36)
         self.running = True
-        self.dinos = populateDinoList(16)
+        self.dinos = populateDinoList(25)
         self.dino_pos = []
         self.death = []
         self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPreferred, dinoPreferred, wallHugger, scavanger]
@@ -201,6 +201,10 @@ class Fullsimulation:
         for i in range(0,7,2):
             for j in range(0,4,1):
                 self.dinos.append(self.old_gen[i+1].child(self.old_gen[i]))
+        for i in range(9):
+            self.dinos.append(createDino())
+            self.dinos[-1].dino_behavior = random.choice(self.behaviors)
+            self.dino_behaviorFunc[self.dinos[-1]] = self.dinos[-1].dino_behavior
         for i in self.dinos:
             self.dino_behaviorFunc[i] = i.dino_behavior
         for dino in self.dinos:
@@ -270,7 +274,7 @@ class Fullsimulation:
                 self.draw_generation()
                 self.update_all_Dino_pos()
             self.update_display()
-            pygame.time.delay(16)
+            pygame.time.delay(1)
         self.logfile.close()
         pygame.quit()
 
