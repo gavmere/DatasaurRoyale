@@ -177,7 +177,7 @@ def goToGreensOnly(dino, obs):
             return 'down'
     return random.choice(['left', 'right', 'up', 'down'])
 
-def randomBehav():
+def randomBehav(dino, obs):
     return random.choice(['left', 'right', 'up', 'down'])
 
 
