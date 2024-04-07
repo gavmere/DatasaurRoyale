@@ -62,8 +62,8 @@ class Dinosaur:
         # Setting up Power
         self.powerModifier = {
             #multiplier
-            'Large': 10, 
-            'Medium': 5, 
+            'Large': 4, 
+            'Medium': 3, 
             'Small': 2,
 
             #adding

@@ -1,7 +1,7 @@
 import random
 
 def eatOtherGuy(dino, calVal):
-    dino.energy += calVal*dino.carnVal
+    dino.energy += calVal*dino.carnVal * 2
 
 def eatPlant(dino, calVal):
     dino.energy += calVal*dino.herbVal

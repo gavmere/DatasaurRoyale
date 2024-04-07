@@ -1,301 +1,109 @@
-Large,Beak,Bipedal,Spikes,None,Mobile Tail,100,100,0.5,0.28125,98.0,56,1085,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Herbivore Teeth,Quadruped,Horns,None,None,100,100,0.1875,0.5,74.625,94,1030,True,<function goToNearestDino at 0x000002E88E8C4EA0>
-Large,Carnivore Teeth,Bipedal,None,None,None,100,100,1,0.1875,494,56,1080,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Medium,Carnivore Teeth,Flying,Claws,None,Mobile Tail,100,100,1,0.10546875,35.58203125,31,630,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Quadruped,None,Long,Mobile Tail,100,100,0.25,0.1875,41.75,94,1020,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Claws,Long,Attack Tail,30.0,100,0.09375,0.25,3.0,94,1060,True,<function dinoPreferred at 0x000002E88E8C4B80>
-Medium,Carnivore Teeth,Flying,Claws,None,Mobile Tail,100,100,1,0.10546875,40.109375,31,630,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,None,None,None,100,100,0.5,0.25,157.0,94,1040,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Herbivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.1875,0.5,3.5,94,1040,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,None,None,Attack Tail,97.0,100,0.1875,0.5,95.375,94,1040,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Claws,None,None,100,100,0.25,0.25,23.0,94,1050,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Carnivore Teeth,Quadruped,None,Long,None,100,100,0.25,0.25,18.75,94,1010,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Herbivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.1875,0.25,9.625,94,1090,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,None,Long,None,100,100,0.125,0.5,13.0,94,970,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,Claws,None,None,100,100,0.25,0.25,28.0,94,1050,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Quadruped,None,Long,Attack Tail,100,100,0.09375,0.5,4.4375,94,1010,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.28125,135.90625,56,1100,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Spikes,Long,None,50.0,100,0.125,0.5,19.0,94,1005,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,None,Long,None,77.0,100,0.125,0.5,22.5,94,970,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,None,Long,None,100,100,0.125,0.5,3.0,94,970,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.28125,130.0,56,1040,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Carnivore Teeth,Quadruped,None,Long,None,100,100,0.25,0.25,5.0,94,1010,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Quadruped,None,Long,None,100,100,0.125,0.5,5.75,94,970,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,None,Long,None,100,100,0.25,0.25,22.0,94,1010,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Bipedal,None,Long,None,100,100,0.25,0.375,13.0,56,1010,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,None,Long,None,100,100,0.25,0.25,75.25,94,1010,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,None,Long,None,100,100,0.125,0.5,1.0,94,970,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,None,Long,Attack Tail,100,100,0.1875,0.5,23.25,94,1030,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Horns,Long,None,100,100,0.09375,0.5,38.6875,94,1000,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Carnivore Teeth,Quadruped,Claws,None,Mobile Tail,100,100,0.5,0.09375,114.46875,94,1100,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Bipedal,Claws,Long,None,100,100,0.25,0.1875,10.0,56,1060,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Quadruped,Claws,None,None,100,100,0.5,0.25,17.5,94,1070,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Flying,None,None,Mobile Tail,100,100,0.5,0.28125,80.90625,38,1040,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Herbivore Teeth,Quadruped,Claws,None,None,100,100,0.25,0.25,2.0,94,1050,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Horns,None,None,100,100,0.375,0.25,17.75,94,1070,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,None,None,100,100,0.25,0.25,1.0,94,1055,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Claws,None,None,100,100,0.5,0.125,31.0,94,1090,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Horns,None,None,100,100,0.375,0.25,17.25,94,1070,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Flying,Horns,Long,Mobile Tail,90.0,100,0.375,0.28125,42.46875,38,1060,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,1.25,94,1080,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.375,27.5,94,1060,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Horns,Long,None,100,100,0.1875,0.25,22.0,94,1040,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.5,7.0,94,1090,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,None,None,19.0,100,0.375,0.25,30.75,94,1070,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Carnivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.125,29.75,94,1130,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,None,None,None,59.0,100,0.25,0.5,12.5,94,1000,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,7.0,56,1120,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,1.703125,56,1140,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Quadruped,None,None,Attack Tail,100,100,0.375,0.5,18.0,94,1060,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Carnivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.125,165.25,94,1130,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,None,None,Mobile Tail,100,100,0.25,0.375,32.5,94,1010,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,None,None,Mobile Tail,100,100,0.25,0.375,16.25,94,1010,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,None,None,Mobile Tail,100,100,0.25,0.375,59.5,94,1010,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,None,Long,None,100,100,0.25,0.5,36.0,94,990,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Herbivore Teeth,Quadruped,None,Long,Mobile Tail,100,100,0.125,0.375,7.5,94,980,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Bipedal,Spikes,None,None,100,100,0.5,0.375,29.0,56,1075,True,<function scavanger at 0x000002E88E8C53A0>
-Medium,Carnivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.1875,14.125,78,630,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Attack Tail,100,100,0.046875,0.5,8.125,94,1025,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,8.625,94,995,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Bipedal,Spikes,None,Attack Tail,100,100,0.375,0.375,12.125,56,1115,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,8.375,94,995,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.140625,0.5,21.3125,94,1070,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,5.375,94,995,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,124.5,56,1120,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Herbivore Teeth,Quadruped,Claws,Long,Attack Tail,100,100,0.09375,0.25,22.25,94,1060,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,12.125,94,995,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.1875,3.875,94,1035,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,1.875,94,995,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Bipedal,None,None,Mobile Tail,100,100,1,0.28125,53.0625,56,1070,True,<function dinoPreferred at 0x000002E88E8C4B80>
-Large,Carnivore Teeth,Quadruped,Spikes,None,None,100,100,0.25,0.25,18.25,94,1055,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,22.625,94,1025,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Medium,Beak,Bipedal,Claws,None,None,100,100,1,0.28125,252,47,610,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.1875,11.875,94,1065,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Flying,Horns,Long,Mobile Tail,100,100,0.375,0.140625,32.21875,38,1080,True,<function dinoPreferred at 0x000002E88E8C4B80>
-Large,Herbivore Teeth,Quadruped,Horns,Long,None,100,100,0.09375,0.5,34.25,94,1000,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.1875,21.5625,94,1035,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,None,100,100,0.125,0.25,6.5,94,1025,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.1875,26.9375,94,1035,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.5,16.65625,94,1060,True,<function greenPreferred at 0x000002E88E8C5260>
-Medium,Herbivore Teeth,Quadruped,Horns,Long,Attack Tail,97.0,100,0.0703125,0.75,13.21875,78,540,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.25,104.4375,94,1080,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.25,5.6875,94,1080,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.25,38.5625,94,1080,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.1875,9.25,94,1035,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,None,None,Mobile Tail,19.219200000000004,100,0.25,0.375,129.5,94,1010,True,<function goToNearestDino at 0x000002E88E8C4EA0>
-Large,Carnivore Teeth,Quadruped,Horns,Long,None,100,100,0.1875,0.25,1,94,1040,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Claws,Long,Mobile Tail,100,100,0.25,0.1875,57.5,94,1050,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Flying,None,None,None,100,100,1,0.375,24,38,1050,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Mobile Tail,49.0,100,0.1875,0.1875,5.9375,94,1050,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Carnivore Teeth,Quadruped,Horns,None,None,100,100,0.375,0.25,155.25,94,1070,True,<function greenPreferred at 0x000002E88E8C5260>
-Medium,Carnivore Teeth,Quadruped,Horns,None,None,100,100,0.375,0.375,25.5,78,570,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.28125,114.71875,56,1100,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Spikes,Long,Attack Tail,32.0,100,0.09375,0.5,20.75,94,1045,True,<function goToNearestDino at 0x000002E88E8C4EA0>
-Large,Carnivore Teeth,Quadruped,None,Long,Mobile Tail,61.0,100,0.25,0.1875,112.0,94,1020,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,96.0,100,0.125,0.375,15.75,94,1015,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.375,54.625,94,1030,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.28125,100.03125,56,1100,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Bipedal,Spikes,None,None,100,100,0.25,0.375,23.375,56,1055,True,<function dinoPreferred at 0x000002E88E8C4B80>
-Large,Herbivore Teeth,Bipedal,None,Long,Attack Tail,100,100,0.1875,0.375,9.25,56,1050,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.25,0.28125,7.84375,56,1020,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Beak,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.375,45.25,94,1030,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Herbivore Teeth,Bipedal,Claws,None,None,100,100,0.5,0.1875,43.0,56,1090,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,9.625,94,1015,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Herbivore Teeth,Bipedal,Claws,Long,None,100,100,0.25,0.1875,126.9375,56,1060,True,<function goToNearestDino at 0x000002E88E8C4EA0>
-Large,Beak,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.375,20.625,94,1030,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,22.625,94,1015,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Beak,Bipedal,None,Long,Attack Tail,100,100,0.375,0.375,35.25,56,1070,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,10.0,94,1015,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Quadruped,None,Long,Mobile Tail,100,100,0.25,0.375,59.375,94,1000,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Beak,Quadruped,None,Long,Attack Tail,100,100,0.1875,0.5,49.625,94,1030,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,33.625,94,1015,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Quadruped,None,Long,Mobile Tail,100,100,0.25,0.375,7.0,94,1000,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.25,5.4375,94,1080,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Beak,Quadruped,Horns,Long,Mobile Tail,32.9,100,0.1875,0.375,76.875,94,1030,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.375,49.5,94,1030,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Bipedal,Spikes,Long,Mobile Tail,100,100,0.25,0.28125,58.90625,56,1055,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,0.125,94,1015,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Flying,None,None,Attack Tail,61.0,100,0.75,0.375,328.875,38,1090,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,17.125,94,1015,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,27.5,94,1015,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.1875,34.5,94,1050,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.375,40.5,94,1060,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Flying,Horns,None,Mobile Tail,85.0,100,0.75,0.28125,35.0,38,1090,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Beak,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.375,59.0,94,1045,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Mobile Tail,92.0,100,0.25,0.1875,57.0,94,1065,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Quadruped,Claws,None,None,100,100,0.5,0.25,194.5,94,1070,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,57.75,94,1110,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.375,0.25,120.0,94,1080,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Attack Tail,100,100,0.1875,0.25,48.0,94,1095,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.375,0.25,61.0,94,1080,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.25,46.875,94,1080,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.25,16.15625,94,1080,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Herbivore Teeth,Flying,Claws,None,Mobile Tail,100,100,0.5,0.140625,23.0,38,1090,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.1875,0.5,22.0,94,1040,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Beak,Quadruped,None,None,Attack Tail,100,100,0.375,0.5,7.25,94,1060,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Claws,Long,Mobile Tail,100,100,0.25,0.1875,5.5,94,1050,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Quadruped,None,Long,Attack Tail,100,100,0.09375,0.5,10.25,94,1010,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Beak,Quadruped,Horns,Long,Attack Tail,100,100,0.140625,0.5,2.0,94,1060,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,None,Long,Attack Tail,100,100,0.1875,0.25,73.625,94,1050,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,1.375,94,1025,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Attack Tail,77.0,100,0.09375,0.25,8.375,94,1065,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Attack Tail,100,100,0.1875,0.25,19.5,94,1095,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,None,100,100,0.125,0.5,21.0,94,1015,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Flying,Horns,Long,Attack Tail,30.0,100,0.28125,0.375,14.75,38,1090,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Claws,None,Attack Tail,78.0,100,0.1875,0.25,46.5,94,1090,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,None,100,100,0.0625,0.5,9.5,94,985,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,None,100,100,0.125,0.5,21.0,94,1015,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,None,100,100,0.0625,0.5,6.75,94,985,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,19.875,94,1110,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Flying,Horns,None,Mobile Tail,100,100,0.75,0.28125,488.0625,38,1090,True,<function dinoPreferred at 0x000002E88E8C4B80>
-Large,Beak,Quadruped,Spikes,Long,Attack Tail,100,100,0.09375,0.5,27.0,94,1045,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,None,100,100,0.125,0.25,29.0,94,1025,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,None,Long,None,100,100,0.25,0.25,1.5,94,1010,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,None,100,100,0.125,0.25,7.75,94,1025,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Spikes,Long,None,100,100,0.125,0.5,36.0,94,1005,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Flying,Claws,None,Mobile Tail,66.0,100,1,0.140625,137.515625,38,1110,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Spikes,Long,None,100,100,0.125,0.5,1.0,94,1005,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.375,17.0,94,1045,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.375,0.25,201.0,94,1080,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Claws,Long,None,100,100,0.25,0.25,11.0,94,1040,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,None,100,100,0.0625,0.5,31.25,94,985,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Bipedal,None,None,Mobile Tail,67.89999999999999,100,1,0.28125,401,56,1070,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,4.5,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,49.3125,94,1110,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Herbivore Teeth,Quadruped,Spikes,None,None,100,100,0.125,0.5,12.5,94,1015,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Bipedal,Horns,None,None,69.0,100,0.375,0.375,176.75,56,1070,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Carnivore Teeth,Flying,Horns,None,Mobile Tail,100,100,0.75,0.140625,188.0,38,1110,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Small,Herbivore Teeth,Quadruped,None,Long,Attack Tail,100,100,0.046875,1,10,62,210,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Beak,Bipedal,Claws,Long,Attack Tail,100,100,0.375,0.1875,32.5625,56,1120,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,0.625,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Bipedal,Claws,Long,Mobile Tail,100,100,0.5,0.140625,42.703125,56,1090,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,1.75,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Flying,Horns,None,None,100,100,0.375,0.375,210.875,38,1060,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,7.4375,94,1110,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.1875,7.4375,94,1035,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,None,Long,Mobile Tail,71.0,100,0.25,0.1875,12.9375,94,1020,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Horns,None,None,100,100,0.1875,0.5,76.75,94,1030,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Claws,Long,Mobile Tail,100,100,0.25,0.09375,53.5,94,1070,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,75.0,100,0.125,0.375,12.5,94,1015,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Spikes,Long,Mobile Tail,100,100,0.125,0.375,9.5,94,1015,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Spikes,None,None,100,100,0.25,0.5,15.5,94,1035,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Beak,Bipedal,None,None,Mobile Tail,100,100,1,0.28125,80,56,1070,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Beak,Quadruped,Claws,Long,Mobile Tail,100,100,0.25,0.1875,36.9375,94,1050,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,40.0,100,0.0625,0.375,1.625,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Claws,None,None,100,100,0.25,0.25,24.25,94,1050,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Flying,None,None,None,98.0,100,0.5,0.375,24.875,38,1030,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,47.0,100,0.0625,0.375,4.25,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,16.25,94,995,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.375,110.75,94,1060,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,2.5,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,66.0,100,0.125,0.375,5.0,94,1025,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,22.625,94,995,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,32.625,94,1025,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Bipedal,None,Long,Attack Tail,100,100,0.375,0.375,11.0,56,1070,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.1875,17.9375,94,1065,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,100,100,0.0625,0.375,5.625,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Horns,Long,Mobile Tail,100,100,0.09375,0.375,22.25,94,1010,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.375,46.5,94,1060,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Horns,Long,None,100,100,0.1875,0.5,0.625,94,1020,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,Mobile Tail,53.0,100,0.0625,0.375,6.625,94,995,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Attack Tail,100,100,0.09375,0.25,2.875,94,1065,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Bipedal,Spikes,None,None,100,100,0.25,0.375,2.625,56,1055,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,None,100,100,0.125,0.25,0.75,94,1025,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,None,Long,Mobile Tail,100,100,0.125,0.375,1.375,94,980,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Carnivore Teeth,Quadruped,Claws,Long,Attack Tail,100,100,0.1875,0.125,32.375,94,1100,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.1875,35.9375,94,1065,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,None,100,100,0.0625,0.5,14.375,94,985,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Quadruped,Spikes,None,None,100,100,0.25,0.5,20.0,94,1035,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Beak,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.5,34.375,94,1090,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,80.5,56,1120,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Beak,Bipedal,None,Long,None,100,100,0.5,0.375,32.75,56,1030,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Attack Tail,100,100,0.09375,0.5,39.375,94,1055,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Carnivore Teeth,Flying,None,None,None,100,100,1,0.1875,213,38,1070,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Claws,Long,None,100,100,0.125,0.25,9.0,94,1020,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.1875,0.375,38.75,94,1040,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.1875,0.25,18.75,94,1090,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Claws,None,Mobile Tail,100,100,0.25,0.1875,17.9375,94,1060,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Quadruped,Claws,None,None,100,100,0.25,0.25,21.5,94,1050,True,<function scavanger at 0x000002E88E8C53A0>
-Medium,Beak,Flying,None,None,None,100,100,1,0.5625,16,31,550,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Flying,Claws,None,Mobile Tail,100,100,1,0.0703125,77.3515625,38,1130,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,70.0,100,0.125,0.375,25.5,94,1025,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Herbivore Teeth,Bipedal,Spikes,None,None,97.0,100,0.25,0.375,21.5,56,1055,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Attack Tail,98.0,100,0.09375,0.5,24.75,94,1055,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Attack Tail,100,100,0.09375,0.5,15.0,94,1055,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,None,None,None,100,100,0.25,0.5,4.0,94,1000,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.1875,0.25,0.5,94,1090,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,None,Long,Mobile Tail,100,100,0.125,0.375,2.5,94,980,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Flying,Claws,None,None,100,100,0.5,0.1875,202.0,38,1080,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Carnivore Teeth,Bipedal,None,None,None,100,100,1,0.1875,182,56,1080,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,131.703125,56,1120,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Herbivore Teeth,Bipedal,Horns,None,Attack Tail,50.0,100,0.28125,0.375,49.8125,56,1110,True,<function greenPreferred at 0x000002E88E8C5260>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,Attack Tail,100,100,0.09375,0.25,13.5625,94,1065,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Spikes,None,Attack Tail,100,100,0.1875,0.5,20.5,94,1075,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Spikes,None,Attack Tail,100,100,0.1875,0.5,1.75,94,1075,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Spikes,None,None,100,100,0.25,0.5,29.5,94,1035,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Flying,None,None,None,100,100,0.5,0.375,165.0,38,1030,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Carnivore Teeth,Quadruped,Spikes,Long,None,70.0,100,0.125,0.25,57.5,94,1025,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,86.75,94,1110,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Quadruped,Spikes,None,Attack Tail,100,100,0.1875,0.5,16.25,94,1075,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Beak,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.5,88.25,94,1090,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,4.875,94,1025,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Flying,Horns,None,Attack Tail,100,100,0.5625,0.1875,100.5,38,1140,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Beak,Quadruped,None,Long,None,97.0,100,0.25,0.5,195.0,94,990,True,<function goToNearestDino at 0x000002E88E8C4EA0>
-Large,Carnivore Teeth,Quadruped,Spikes,None,None,100,100,0.25,0.25,56.0,94,1055,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,170.5,94,1080,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,30.125,94,1110,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Bipedal,None,None,None,100,100,0.5,0.375,63.0,56,1040,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,None,None,Mobile Tail,100,100,0.25,0.375,28.5,94,1010,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,74.0,100,0.1875,0.375,4.625,94,1040,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,None,None,Mobile Tail,100,100,0.5,0.375,29.0,94,1030,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,28,56,1140,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Beak,Quadruped,Claws,Long,Mobile Tail,100,100,0.25,0.1875,42.875,94,1050,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.375,8.75,94,1030,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,26.375,94,1025,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Bipedal,None,None,None,95.0,100,1,0.1875,214,56,1080,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Herbivore Teeth,Quadruped,Spikes,Long,None,89.0,100,0.0625,0.5,7.0,94,985,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Horns,None,None,100,100,0.1875,0.5,53.75,94,1030,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,129.25,94,1080,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.375,35.875,94,1060,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.1875,29.3125,94,1065,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,1.1875,94,1080,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.1875,0.375,27.125,94,1040,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Beak,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.375,35.5,94,1060,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,Horns,None,None,100,100,0.1875,0.5,72.75,94,1030,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.1875,0.375,21.25,94,1040,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,8.875,94,1025,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,45.875,94,1080,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,61.0,100,0.375,0.1875,44.5,94,1080,True,<function copDino at 0x000002E88E8C4CC0>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,42.75,94,1080,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.1875,36.5,94,1080,True,<function wallHugger at 0x000002E88E8C5300>
-Large,Herbivore Teeth,Quadruped,Claws,Long,Mobile Tail,27.44,100,0.125,0.1875,14.9375,94,1030,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Claws,Long,Mobile Tail,100,100,0.25,0.09375,29.96875,94,1070,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.1875,10.0625,94,1050,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.1875,16.375,94,1050,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.125,46.5,94,1130,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Carnivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.375,0.25,48.25,94,1080,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,None,None,85.0,100,0.375,0.25,74.0,94,1070,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Mobile Tail,100,100,0.1875,0.1875,85.0,94,1050,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,Long,Attack Tail,82.0,100,0.140625,0.25,22.375,94,1080,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Flying,Horns,None,Attack Tail,100,100,0.5625,0.1875,108.5625,38,1140,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,3.5,94,1110,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Herbivore Teeth,Quadruped,Claws,None,Attack Tail,96.0,100,0.1875,0.25,16.25,94,1090,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Beak,Bipedal,Horns,None,Attack Tail,100,100,0.5625,0.375,0.75,56,1130,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Herbivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.140625,0.5,51.375,94,1070,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Large,Carnivore Teeth,Quadruped,Horns,None,Attack Tail,100,100,0.28125,0.25,30.25,94,1110,True,<function paralyzed at 0x000002E88E8C5080>
-Large,Carnivore Teeth,Quadruped,Claws,Long,Attack Tail,100,100,0.1875,0.125,131.0,94,1100,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,78.0,100,0.1875,0.375,61.0,94,1040,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.28125,55.8125,56,1100,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.28125,230.8125,56,1100,True,<function goToGreensOnly at 0x000002E88E8C4F40>
-Medium,Beak,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.375,19.5,78,610,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,55.4609375,56,1140,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.1875,0.375,51.5,94,1040,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Beak,Bipedal,Horns,Long,Mobile Tail,95.0,100,0.375,0.28125,92.0,56,1070,True,<function maxConsumption at 0x000002E88E8C5120>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,99.0,100,0.1875,0.375,17.875,94,1040,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Beak,Flying,Horns,None,Attack Tail,100,100,0.5625,0.375,152.0,38,1120,True,<function minConsumption at 0x000002E88E8C51C0>
-Large,Herbivore Teeth,Quadruped,Horns,Long,Mobile Tail,45.0,100,0.09375,0.375,16.3125,94,1010,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Horns,Long,Mobile Tail,100,100,0.09375,0.375,33.375,94,1010,True,<function cowardDino at 0x000002E88E8C4D60>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.1875,0.375,19.875,94,1040,True,<function fiftyFftydinoPlans at 0x000002E88E8C4E00>
-Large,Herbivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.1875,0.375,53.375,94,1040,True,<function randomBehav at 0x000002E88E8C4FE0>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Attack Tail,100,100,0.09375,0.5,12.0625,94,1055,True,<function scavanger at 0x000002E88E8C53A0>
-Large,Herbivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.125,0.375,66.875,94,1025,True,<function maxConsumption at 0x000002E88E8C5120>
+Medium,Beak,Flying,None,None,Mobile Tail,100,100,1,0.421875,195.51041666666765,31,6,360,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.421875,386.93749999999676,47,6,340,True,<function dinoPreferred at 0x0000012D7E284C20>
+Medium,Carnivore Teeth,Flying,None,None,None,100,100,1,0.28125,98.84374999999962,31,5,370,True,<function fiftyFftydinoPlans at 0x0000012D7E284EA0>
+Small,Carnivore Teeth,Bipedal,Claws,None,None,100,100,0.5,0.1875,24.31249999999953,38,6,330,True,<function greenPreferred at 0x0000012D7E285300>
+Large,Beak,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.28125,282.7312499999976,56,5,470,True,<function minConsumption at 0x0000012D7E285260>
+Large,Herbivore Teeth,Bipedal,None,Long,Mobile Tail,73.0,100,0.25,0.28125,6.812499999999632,56,5,420,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Bipedal,Spikes,None,Mobile Tail,100,100,0.5,0.421875,119.3333333333327,47,6,385,True,<function minConsumption at 0x0000012D7E285260>
+Medium,Herbivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,0.5,0.2109375,102.3880208333348,47,6,400,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,None,None,Mobile Tail,100,100,1,0.140625,15.999999999997666,56,5,490,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,44.79999999999821,56,5,520,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,None,None,Mobile Tail,100,100,1,0.140625,142.39999999999844,56,5,490,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.140625,69.89999999999715,56,5,490,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,142.2531249999995,56,5,520,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Carnivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.140625,121.86249999999667,56,5,460,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Herbivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.25,0.28125,40.800000000000054,56,5,420,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Flying,None,None,Mobile Tail,100,100,1,0.421875,60.99999999999806,31,6,360,True,<function cowardDino at 0x0000012D7E284E00>
+Large,Herbivore Teeth,Bipedal,None,None,Mobile Tail,100,100,0.5,0.28125,0.3999999999999002,56,5,450,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Carnivore Teeth,Flying,None,Long,None,100,100,0.5,0.28125,34.79999999999934,31,5,340,True,<function paralyzed at 0x0000012D7E285120>
+Large,Herbivore Teeth,Bipedal,Spikes,None,Mobile Tail,100,100,0.25,0.28125,10.41874999999878,56,5,465,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,179.94270833333366,47,6,400,True,<function wallHugger at 0x0000012D7E2853A0>
+Large,Herbivore Teeth,Bipedal,None,None,None,100,100,0.5,0.375,3.625,56,4,440,True,<function minConsumption at 0x0000012D7E285260>
+Large,Herbivore Teeth,Bipedal,None,None,Mobile Tail,100,100,0.5,0.28125,123.49374999999728,56,5,450,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,None,None,Mobile Tail,100,100,1,0.421875,137.8333333333317,47,6,370,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.421875,114.49479166666814,47,6,370,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,173.69270833333488,47,6,400,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,218.91666666666725,47,6,400,True,<function scavanger at 0x0000012D7E285440>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,88.49999999999926,47,6,400,True,<function scavanger at 0x0000012D7E285440>
+Large,Carnivore Teeth,Bipedal,Horns,None,None,50.0,100,0.75,0.1875,342.0,56,4,510,True,<function goToNearestDino at 0x0000012D7E284F40>
+Large,Carnivore Teeth,Flying,Claws,None,Mobile Tail,100,100,1,0.0703125,73.964062499998,38,5,530,True,<function fiftyFftydinoPlans at 0x0000012D7E284EA0>
+Medium,Beak,Bipedal,Claws,Long,None,100,100,0.5,0.28125,77.14374999999683,47,5,380,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.421875,27.40104166666715,47,6,370,True,<function scavanger at 0x0000012D7E285440>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,64.0,100,0.75,0.421875,52.75000000000076,47,6,400,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Carnivore Teeth,Bipedal,Claws,Long,Mobile Tail,100,100,0.5,0.10546875,24.527343750001435,47,6,410,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Carnivore Teeth,Bipedal,Claws,Long,Mobile Tail,100,100,0.5,0.10546875,50.694010416666,47,6,410,True,<function randomBehav at 0x0000012D7E285080>
+Large,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.28125,150.84999999999764,56,5,500,True,<function paralyzed at 0x0000012D7E285120>
+Medium,Herbivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,0.5,0.2109375,20.00000000000012,47,6,400,True,<function randomBehav at 0x0000012D7E285080>
+Large,Herbivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,0.5,0.140625,5.299999999999354,56,5,500,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,211.249999999997,56,5,520,True,<function wallHugger at 0x0000012D7E2853A0>
+Large,Herbivore Teeth,Bipedal,None,None,Mobile Tail,100,100,0.5,0.28125,11.999999999997378,56,5,450,True,<function randomBehav at 0x0000012D7E285080>
+Large,Herbivore Teeth,Bipedal,None,None,Mobile Tail,100,100,0.5,0.28125,8.406249999999496,56,5,450,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,55.79999999999795,56,5,540,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Claws,Long,Mobile Tail,100,100,0.5,0.0703125,44.492187500000355,56,5,510,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.10546875,218.8606770833307,47,6,440,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,236.82812499999565,47,6,400,True,<function scavanger at 0x0000012D7E285440>
+Medium,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,49.049,100,0.75,0.2109375,69.83333333333508,47,6,420,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Bipedal,None,None,Mobile Tail,100,100,1,0.421875,145.1093750000011,47,6,370,True,<function scavanger at 0x0000012D7E285440>
+Medium,Carnivore Teeth,Flying,Claws,None,Mobile Tail,100,100,1,0.10546875,685.194010416666,31,6,430,True,<function maxConsumption at 0x0000012D7E2851C0>
+Medium,Beak,Bipedal,None,None,Mobile Tail,100,100,1,0.421875,38.33333333333449,47,6,370,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.10546875,161.666666666666,47,6,440,True,<function paralyzed at 0x0000012D7E285120>
+Small,Herbivore Teeth,Flying,None,None,Mobile Tail,100,100,0.25,0.5625,90.35714285714337,25,7,240,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Quadruped,None,None,None,100,100,0.5,0.375,52.25000000000066,78,3,340,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.2109375,154.66666666666833,47,6,420,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Herbivore Teeth,Bipedal,Claws,Long,Attack Tail,100,100,0.1875,0.28125,33.75,47,4,400,False,<function dinoPreferred at 0x0000012D7E284C20>
+Medium,Carnivore Teeth,Flying,Spikes,Long,None,100,100,0.25,0.28125,29.949999999999992,31,5,355,True,<function scavanger at 0x0000012D7E285440>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,243.33333333332752,47,6,400,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,88.25000000000206,47,6,400,True,<function greenPreferred at 0x0000012D7E285300>
+Large,Beak,Bipedal,Horns,None,Mobile Tail,0.987,100,0.75,0.28125,15.099999999997529,56,5,500,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,66.79999999999633,56,5,520,True,<function wallHugger at 0x0000012D7E2853A0>
+Large,Beak,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.28125,3.3499999999994454,56,5,470,True,<function scavanger at 0x0000012D7E285440>
+Medium,Herbivore Teeth,Bipedal,None,None,Mobile Tail,100,100,0.5,0.421875,44.77604166666705,47,6,350,True,<function wallHugger at 0x0000012D7E2853A0>
+Medium,Herbivore Teeth,Bipedal,Horns,Long,Mobile Tail,100,100,0.1875,0.421875,31.95312499999963,47,6,350,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,Claws,None,Mobile Tail,6.123600000000001,100,1,0.2109375,55.66666666666625,47,6,420,True,<function randomBehav at 0x0000012D7E285080>
+Large,Beak,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.28125,56.01874999999865,56,5,470,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Herbivore Teeth,Bipedal,Horns,Long,Mobile Tail,82.0,100,0.1875,0.421875,22.02083333333302,47,6,350,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Bipedal,Horns,Long,Mobile Tail,70.0,100,0.375,0.2109375,66.8749999999998,47,6,390,True,<function paralyzed at 0x0000012D7E285120>
+Large,Herbivore Teeth,Bipedal,Horns,Long,Mobile Tail,100,100,0.1875,0.28125,10.543749999999573,56,5,450,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Carnivore Teeth,Bipedal,Claws,Long,None,100,100,0.5,0.09375,256.4375,56,4,500,True,<function goToNearestDino at 0x0000012D7E284F40>
+Large,Carnivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.140625,36.140624999999375,56,5,460,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Bipedal,None,None,Mobile Tail,100,100,1,0.2109375,81.33333333333306,47,6,390,True,<function minConsumption at 0x0000012D7E285260>
+Large,Beak,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.28125,100.57500000000013,56,5,440,True,<function greenPreferred at 0x0000012D7E285300>
+Medium,Beak,Bipedal,None,Long,None,100,100,0.5,0.5625,78.79999999999862,47,5,330,True,<function paralyzed at 0x0000012D7E285120>
+Large,Herbivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.25,0.28125,39.493749999999736,56,5,420,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Carnivore Teeth,Flying,Horns,None,Mobile Tail,100,100,0.75,0.140625,213.399999999996,38,5,510,True,<function scavanger at 0x0000012D7E285440>
+Large,Carnivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.140625,38.65937500000015,56,5,460,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Beak,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.28125,21.26249999999817,56,5,440,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Bipedal,None,None,Mobile Tail,100,100,1,0.2109375,30.721354166665755,47,6,390,True,<function randomBehav at 0x0000012D7E285080>
+Medium,Beak,Bipedal,None,Long,Mobile Tail,100,100,0.5,0.421875,21.447916666667023,47,6,340,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.2109375,158.9999999999999,47,6,420,True,<function cowardDino at 0x0000012D7E284E00>
+Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,88.0,100,0.75,0.140625,2.340625000000017,56,5,520,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,55.81249999999774,56,5,520,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Beak,Bipedal,Spikes,None,Mobile Tail,100,100,0.5,0.28125,78.51875000000015,56,5,485,True,<function minConsumption at 0x0000012D7E285260>
+Large,Beak,Flying,Claws,None,Attack Tail,100,100,0.75,0.1875,238.45833333333331,38,3,540,True,<function minConsumption at 0x0000012D7E285260>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.421875,4.895833333332856,47,6,400,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,244.79999999999757,56,5,540,True,<function cowardDino at 0x0000012D7E284E00>
+Medium,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.10546875,337.5169270833278,47,6,440,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Medium,Beak,Bipedal,Horns,None,Attack Tail,100,100,0.5625,0.5625,43.125,47,4,430,True,<function dinoPreferred at 0x0000012D7E284C20>
+Medium,Beak,Bipedal,Horns,None,Mobile Tail,65.0,100,0.75,0.421875,69.11458333333444,47,6,400,True,<function greenPreferred at 0x0000012D7E285300>
+Large,Beak,Flying,None,None,Mobile Tail,77.0,100,1,0.28125,190.79999999999882,38,5,460,True,<function paralyzed at 0x0000012D7E285120>
+Large,Beak,Bipedal,Claws,None,Mobile Tail,56.99999999999999,100,1,0.140625,215.79999999999842,56,5,520,True,<function cowardDino at 0x0000012D7E284E00>
+Large,Beak,Bipedal,Claws,None,Mobile Tail,100,100,1,0.140625,38.30312499999992,56,5,520,True,<function minConsumption at 0x0000012D7E285260>
+Large,Beak,Bipedal,Claws,None,Mobile Tail,100,100,1,0.140625,34.30312499999806,56,5,520,True,<function cowardDino at 0x0000012D7E284E00>
+Small,Herbivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,0.25,0.28125,112.46428571428484,38,7,300,True,<function dinoPreferred at 0x0000012D7E284C20>
+Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,340.19999999999806,56,5,540,True,<function cowardDino at 0x0000012D7E284E00>
+Medium,Carnivore Teeth,Quadruped,Horns,None,Mobile Tail,100,100,0.375,0.28125,31.0,78,4,380,True,<function cowardDino at 0x0000012D7E284E00>
+Medium,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.2109375,89.66666666666748,47,6,420,True,<function cowardDino at 0x0000012D7E284E00>
+Large,Carnivore Teeth,Flying,Spikes,None,Attack Tail,100,100,0.375,0.1875,71.47916666666585,38,3,525,True,<function minConsumption at 0x0000012D7E285260>
+Large,Beak,Bipedal,Claws,None,Mobile Tail,100,100,1,0.140625,230.39999999999873,56,5,520,True,<function cowardDino at 0x0000012D7E284E00>
+Medium,Beak,Bipedal,None,None,Mobile Tail,100,100,1,0.421875,337.10937499999864,47,6,370,True,<function scavanger at 0x0000012D7E285440>
+Medium,Herbivore Teeth,Bipedal,Spikes,None,Mobile Tail,100,100,0.25,0.421875,143.83333333333442,47,6,365,True,<function maxConsumption at 0x0000012D7E2851C0>
+Medium,Herbivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.375,0.421875,8.10937499999924,47,6,380,True,<function scavanger at 0x0000012D7E285440>
+Medium,Beak,Bipedal,Claws,Long,Mobile Tail,100,100,0.5,0.2109375,20.054687500000696,47,6,390,True,<function cowardDino at 0x0000012D7E284E00>
+Large,Beak,Bipedal,Spikes,None,Mobile Tail,100,100,0.5,0.28125,23.406250000000302,56,5,485,True,<function wallHugger at 0x0000012D7E2853A0>
+Large,Herbivore Teeth,Bipedal,Claws,None,Mobile Tail,27.72,100,0.5,0.140625,491.8281249999973,56,5,500,True,<function dinoPreferred at 0x0000012D7E284C20>
+Medium,Carnivore Teeth,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.1875,10.125,78,2,430,True,<function greenPreferred at 0x0000012D7E285300>
+Small,Herbivore Teeth,Bipedal,Spikes,None,Mobile Tail,100,100,0.125,0.5625,21.71428571428621,38,7,265,True,<function goToGreensOnly at 0x0000012D7E284FE0>
+Large,Beak,Bipedal,Spikes,None,Mobile Tail,100,100,0.5,0.28125,199.24999999999818,56,5,485,True,<function fiftyFftydinoPlans at 0x0000012D7E284EA0>
+Large,Beak,Bipedal,Horns,Long,Mobile Tail,100,100,0.375,0.28125,66.75624999999881,56,5,470,True,<function randomBehav at 0x0000012D7E285080>
+Large,Carnivore Teeth,Bipedal,Claws,None,Mobile Tail,100,100,1,0.0703125,512.5515625000018,56,5,540,True,<function maxConsumption at 0x0000012D7E2851C0>
+Medium,Herbivore Teeth,Bipedal,Spikes,Long,Mobile Tail,100,100,0.125,0.421875,2.552083333332965,47,6,335,True,<function cowardDino at 0x0000012D7E284E00>
