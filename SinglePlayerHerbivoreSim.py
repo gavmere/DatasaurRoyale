@@ -31,8 +31,10 @@ class SinglePlayerHerbivoreSim:
         self.dinoList = ['boo1', 'boo2', 'boo3', 'boo4']
 
         self.dinoPos = {}
-        for i in self.dinoList:
-            self.dinoPos[i] = (random.randint(1, self.grid_width-2), random.randint(1, self.grid_height-2))
+        self.dino_x = random.sample(range(1, self.grid_width-2), len(self.dinoList))
+        self.dino_y = random.sample(range(1, self.grid_height-2), len(self.dinoList))
+        for i in range(len(self.dinoList)):
+            self.dinoPos[self.dinoList[i]] = (self.dino_x[i], self.dino_y[i])
 
         # Player settings
         self.player_size = 20
