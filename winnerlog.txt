@@ -1,14 +1,5 @@
-generation 0:Large,Carnivore Teeth,Flying,Horns,None,None,100,100,0.75,0.1875,234.4375,38,1100,True
-generation 1:Large,Carnivore Teeth,Quadruped,None,Long,Attack Tail,100,100,0.1875,0.25,18.125,94,1050,True
-generation 2:Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,28.53125,56,1120,True
-generation 3:Large,Carnivore Teeth,Bipedal,None,None,Mobile Tail,100,100,1,0.140625,72.984375,56,1090,True
-generation 4:Large,Beak,Bipedal,Horns,Long,None,100,100,0.375,0.375,48.875,56,1060,True
-generation 5:Medium,Carnivore Teeth,Flying,Claws,None,Mobile Tail,100,100,1,0.10546875,158,31,630,True
-generation 6:Large,Beak,Quadruped,Claws,None,Mobile Tail,100,100,0.5,0.1875,103.9375,94,1080,True
-generation 7:Large,Carnivore Teeth,Bipedal,Spikes,Long,Attack Tail,100,100,0.1875,0.1875,4.3125,56,1105,True
-generation 8:Large,Beak,Bipedal,Claws,Long,None,100,100,0.5,0.1875,265.9375,56,1080,True
-generation 9:Medium,Herbivore Teeth,Quadruped,Horns,Long,None,100,100,0.09375,0.75,8.8125,78,500,True
-generation 10:Large,Beak,Quadruped,Claws,None,Attack Tail,100,100,0.375,0.25,33.0,94,1110,True
-generation 11:Large,Carnivore Teeth,Flying,Horns,None,None,100,100,0.75,0.1875,136.375,38,1100,True
-generation 12:Large,Carnivore Teeth,Bipedal,Horns,None,Mobile Tail,100,100,0.75,0.140625,61.546875,56,1120,True
-generation 13:Large,Herbivore Teeth,Bipedal,None,Long,Mobile Tail,100,100,0.25,0.28125,31.0,56,1020,True
+generation 0:Large,Carnivore Teeth,Bipedal,None,Long,Mobile Tail,85.0,100,0.5,0.140625,258.703125,56,1060,True
+generation 1:Large,Carnivore Teeth,Flying,Spikes,None,Mobile Tail,100,100,0.5,0.140625,18.140625,38,1095,True
+generation 2:Medium,Herbivore Teeth,Quadruped,None,None,Attack Tail,100,100,0.1875,0.75,70.0,78,540,True
+generation 3:Large,Herbivore Teeth,Flying,Horns,None,None,100,100,0.375,0.375,194.875,38,1060,True
+generation 4:Large,Carnivore Teeth,Flying,Horns,None,Mobile Tail,100,100,0.75,0.140625,43.953125,38,1110,True

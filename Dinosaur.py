@@ -164,6 +164,61 @@ def getStats(dino):
 
     return statList
 
+def colorblindDino(dino, obs):
+    colors = ['lower', 'higher']
+    criterion = random.choice(colors)
+    
+    if criterion == 'lower':
+        nearest_dino = calculate_nearest_other_dino(dino, obs, criterion)
+        actions = valid_movement_avoiding_walls(dino,obs)
+        if nearest_dino:
+            if nearest_dino[0] < dino.dino_x:
+                if 'right' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'right'
+            elif nearest_dino[0] > dino.dino_x:
+                if 'left' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'left'
+            elif nearest_dino[1] < dino.dino_y:
+                if 'down' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'down'
+            elif nearest_dino[1] > dino.dino_y:
+                if 'up' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'up'
+    else:
+        nearest_dino = calculate_nearest_other_dino(dino, obs, criterion)
+        actions = valid_movement_avoiding_walls(dino,obs)
+        if nearest_dino:
+            if nearest_dino[0] < dino.dino_x:
+                if 'right' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'right'
+            elif nearest_dino[0] > dino.dino_x:
+                if 'left' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'left'
+            elif nearest_dino[1] < dino.dino_y:
+                if 'down' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'down'
+            elif nearest_dino[1] > dino.dino_y:
+                if 'up' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'up'
+            
+    return random.choice(['left', 'right', 'up', 'down'])
+
 def copDino(dino, obs):
     colors = ['lower', 'higher']
     criterion = random.choice(colors)
