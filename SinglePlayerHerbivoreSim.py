@@ -38,8 +38,8 @@ class SinglePlayerHerbivoreSim(Dinosaur):
         self.enemy_size = 20
         self.enemy_color = (0, 0, 255)
         self.enemy_x = self.grid_width // 2
-        self.enemy_y = self.grid_width // 2 
-        
+        self.enemy_y = self.grid_width // 2
+
         # Wall settings
         self.wall_size = 20
         self.wall_color = (0, 0, 0)
@@ -70,6 +70,17 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 self.dino_y = random.randint(1, self.grid_height - 2)
             self.coords.append((self.dino_x, self.dino_y))
             self.dinoPos[self.dinoList[i]] = (self.dino_x, self.dino_y)
+
+        # Enemy settings
+        self.dinoOppPos = {}
+        for i in range(len(self.dinoOpp)):
+            self.dinoOpp_x = random.randint(1, self.grid_width - 2)
+            self.dinoOpp_y = random.randint(1, self.grid_height - 2)
+            while (self.dinoOpp_x, self.dinoOpp_y) in self.coords:
+                self.dinoOpp_x = random.randint(1, self.grid_width - 2)
+                self.dinoOpp_y = random.randint(1, self.grid_height - 2)
+            self.coords.append((self.dinoOpp_x, self.dinoOpp_y))
+            self.dinoOppPos[self.dinoOpp[i]] = (self.dinoOpp_x, self.dinoOpp_y)
 
         # Score settings
         self.score = 0
@@ -115,15 +126,13 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 self.newDino_y = self.dinoPos[i][1] + 1
                 self.dinoPos[i] = (self.dinoPos[i][0], self.newDino_y)
                 self.dinoList[0].energy -= 1
-                print(self.dinoList[0].currHealth)
+                '''print(self.dinoList[0].currHealth)
                 print(self.dinoList[0].totalHealth)
                 print(self.dinoList[0].carnVal)
                 print(self.dinoList[0].herbVal)
                 print(self.dinoList[0].energy)
                 print(self.dinoList[0].energyConsumption)
-                print(self.dinoList[0].power)
-                
-            
+                print(self.dinoList[0].power)'''
 
     def check_collisions(self):
         for i, (green_x, green_y) in enumerate(self.green_squares):
@@ -137,9 +146,15 @@ class SinglePlayerHerbivoreSim(Dinosaur):
             if self.dinoPos[i] in self.walls:
                 self.dinoPos.pop(i)
                 self.dinoList.remove(i)
-        
+
         if self.player_x == self.enemy_x and self.player_y == self.enemy_y:
-            self.running = False
+            DinoFunctions.combatSimulation(self.dinoList[0], self.dinoOpp[0])
+            if not self.dinoList[0].isAlive:
+                self.running = False
+                print("YOU DIED !!")
+            elif not self.dinoOpp[0].isAlive:
+                self.dinoOpp.pop()
+                print("OPP DOWN !!")
 
     def draw_grid(self):
         for x in range(self.grid_width):
@@ -169,13 +184,13 @@ class SinglePlayerHerbivoreSim(Dinosaur):
             player_rect = pygame.Rect(self.player_x * self.grid_size, self.player_y * self.grid_size,
                                       self.player_size, self.player_size)
             pygame.draw.rect(self.screen, self.player_color, player_rect)
-            
+
     def draw_enemy(self):
         for i in self.dinoOpp:
-            self.enemy_x = self.dinoPos[i][0]
-            self.enemy_y = self.dinoPos[i][1]
+            self.enemy_x = self.dinoOppPos[i][0]
+            self.enemy_y = self.dinoOppPos[i][1]
             enemy_rect = pygame.Rect(self.enemy_x * self.grid_size, self.enemy_y * self.grid_size,
-                                    self.enemy_size, self.enemy_size)
+                                     self.enemy_size, self.enemy_size)
             pygame.draw.rect(self.screen, self.enemy_color, enemy_rect)
 
     def draw_score(self):
@@ -196,12 +211,12 @@ class SinglePlayerHerbivoreSim(Dinosaur):
             self.handle_events()
             self.handle_player_movement()
             self.check_collisions()
-
             self.screen.fill((0, 0, 0))
             self.draw_grid()
             self.draw_green_squares()
             self.draw_walls()
             self.draw_players()
+            self.draw_enemy()
             self.draw_score()
             self.draw_energy()
             self.update_display()

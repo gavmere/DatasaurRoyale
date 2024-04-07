@@ -8,6 +8,7 @@ class Dinosaur:
         self.energy = 100
         self.energyConsumption = 0
         self.power = 100
+        self.isAlive = True
 
         # Features of this dinosaur
         self.defaultTraits = {

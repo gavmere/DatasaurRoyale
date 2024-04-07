@@ -5,33 +5,33 @@ def calcFeatureScalar(dino):
     return -1
 
 def eatOtherGuy(dino, calVal):
-    dino.actionV += calVal*dino.carnVal
+    dino.energy += calVal*dino.carnVal
 
 def eatPlant(dino, calVal):
-    dino.actionV += calVal*dino.herbVal
+    dino.energy += calVal*dino.herbVal
 
 def stepStill(dino):
-    dino.actionV -= 1*dino.actionC
+    dino.energy -= 1*dino.energyConsumption
 
 def stepMoveUp(dino):
-    dino.actionV -= 2*dino.actionC
+    dino.energy -= 2*dino.energyConsumption
     
 
 def stepMoveDown(dino):
-    dino.actionV -= 2*dino.actionC
+    dino.energy -= 2*dino.energyConsumption
     
 def stepMoveLeft(dino):
-    dino.actionV -= 2*dino.actionC
+    dino.energy -= 2*dino.energyConsumption
 
 def stepMoveRight(dino):
-    dino.actionV -= 2*dino.actionC
+    dino.energy -= 2*dino.energyConsumption
 
 def combatSimulation(dinoOne, dinoTwo):
     # power calculations:
     powerOne = dinoOne.power * (dinoOne.currHealth/dinoOne.totalHealth) * \
-        random.randint(10, 100) * calcFeatureScalar(dinoOne) + dinoOne.attack
+        random.randint(10, 100) * calcFeatureScalar(dinoOne) 
     powerTwo = dinoTwo.power * (dinoTwo.currHealth/dinoTwo.totalHealth) * \
-        random.randint(10, 100) * calcFeatureScalar(dinoTwo) + dinoTwo.attack
+        random.randint(10, 100) * calcFeatureScalar(dinoTwo)
 
     # generates for health calculations
     victorValue = random.randint(10, 200)
@@ -42,17 +42,17 @@ def combatSimulation(dinoOne, dinoTwo):
             dinoTwo.isAlive = False
             eatOtherGuy(dinoOne, dinoTwo.energyConsumption)
         else:
-            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) + dinoTwo.defense 
+            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) 
     elif (powerOne < powerTwo):
         if victorValue >= 100:
             dinoOne.isAlive = False
             eatOtherGuy(dinoTwo, dinoOne.energyConsumption)
         else:
-            dinoOne.currHealth = dinoOne.currHealth * (victorValue/100) + dinoOne.defense
+            dinoOne.currHealth = dinoOne.currHealth * (victorValue/100) 
     else:
         if victorValue >= 100:
             dinoTwo.isAlive = False
             dinoOne.isAlive = False
         else:
-            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) + dinoTwo.defense
-            dinoOne.currHealth = dinoTwo.currHealth * (victorValue/100) + dinoOne.defense
+            dinoTwo.currHealth = dinoTwo.currHealth * (victorValue/100) 
+            dinoOne.currHealth = dinoTwo.currHealth * (victorValue/100)
