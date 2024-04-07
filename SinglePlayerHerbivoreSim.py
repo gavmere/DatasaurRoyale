@@ -12,7 +12,10 @@ class SinglePlayerHerbivoreSim:
         # Initialize Pygame 
         pygame.init()
 
-        self.dinoList = GameFunctions.populateDinoList(20)
+        # Populates environment
+        self.dinoList = GameFunctions.populateDinoList(400)
+
+        self.coords = []
 
         # Set up the window
         self.window_width = 800
@@ -25,12 +28,6 @@ class SinglePlayerHerbivoreSim:
         self.grid_width = self.window_width // self.grid_size
         self.grid_height = self.window_height // self.grid_size
         self.grid_color = (128, 128, 128)
-
-        self.dinoPos = {}
-        self.dino_x = random.sample(range(1, self.grid_width-2), len(self.dinoList))
-        self.dino_y = random.sample(range(1, self.grid_height-2), len(self.dinoList))
-        for i in range(len(self.dinoList)):
-            self.dinoPos[self.dinoList[i]] = (self.dino_x[i], self.dino_y[i])
 
         # Player settings
         self.player_size = 20
@@ -51,9 +48,21 @@ class SinglePlayerHerbivoreSim:
         for _ in range(40):
             new_x = random.randint(0, self.grid_width - 1)
             new_y = random.randint(0, self.grid_height - 1)
+            self.coords.append((new_x, new_y))
             self.green_squares.append((new_x, new_y))
         self.green_square_size = 16
         self.green_square_color = (0, 255, 0)
+
+        # Dinosaur settings
+        self.dinoPos = {}
+        for i in range(len(self.dinoList)):
+            self.dino_x = random.randint(1, self.grid_width - 2)
+            self.dino_y = random.randint(1, self.grid_height - 2)
+            while (self.dino_x, self.dino_y) in self.coords:
+                self.dino_x = random.randint(1, self.grid_width - 2)
+                self.dino_y = random.randint(1, self.grid_height - 2)
+            self.coords.append((self.dino_x, self.dino_y))
+            self.dinoPos[self.dinoList[i]] = (self.dino_x, self.dino_y)
 
         # Score settings
         self.score = 0
