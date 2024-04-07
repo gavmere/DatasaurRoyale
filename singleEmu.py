@@ -2,7 +2,7 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
-from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino
 
 class Fullsimulation:
     def __init__(self, autonomous = False):
@@ -25,7 +25,8 @@ class Fullsimulation:
         #all dino settings
         self.dinos = populateDinoList(5)
         self.dino_pos = []
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, random]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, random]
+
         self.dino_behaviorFunc = {i:random.choice(self.behaviors)for i in self.dinos}
         # Wall settings
         self.wall_size = 20
