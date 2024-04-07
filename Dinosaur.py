@@ -175,6 +175,115 @@ def getStats(dino):
 
     return statList
 
+def colorblindDino(dino, obs):
+    colors = ['lower', 'higher']
+    criterion = random.choice(colors)
+    
+    if criterion == 'lower':
+        nearest_dino = calculate_nearest_other_dino(dino, obs, criterion)
+        actions = valid_movement_avoiding_walls(dino,obs)
+        if nearest_dino:
+            if nearest_dino[0] < dino.dino_x:
+                if 'right' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'right'
+            elif nearest_dino[0] > dino.dino_x:
+                if 'left' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'left'
+            elif nearest_dino[1] < dino.dino_y:
+                if 'down' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'down'
+            elif nearest_dino[1] > dino.dino_y:
+                if 'up' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'up'
+    else:
+        nearest_dino = calculate_nearest_other_dino(dino, obs, criterion)
+        actions = valid_movement_avoiding_walls(dino,obs)
+        if nearest_dino:
+            if nearest_dino[0] < dino.dino_x:
+                if 'right' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'right'
+            elif nearest_dino[0] > dino.dino_x:
+                if 'left' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'left'
+            elif nearest_dino[1] < dino.dino_y:
+                if 'down' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'down'
+            elif nearest_dino[1] > dino.dino_y:
+                if 'up' not in actions:
+                    return random.choice(actions)
+                else:
+                    return 'up'
+            
+    return random.choice(['left', 'right', 'up', 'down'])
+
+def copDino(dino, obs):
+    colors = ['lower', 'higher']
+    criterion = random.choice(colors)
+    
+    if criterion == 'lower':
+        nearest_dino = calculate_nearest_other_dino(dino, obs, criterion)
+        actions = valid_movement_avoiding_walls(dino,obs)
+        if nearest_dino:
+            if nearest_dino[0] < dino.dino_x:
+                if 'left' not in actions:
+                    return 'right'
+                else:
+                    return 'left'
+            elif nearest_dino[0] > dino.dino_x:
+                if 'right' not in actions:
+                    return 'left'
+                else:
+                    return 'right'
+            elif nearest_dino[1] < dino.dino_y:
+                if 'up' not in actions:
+                    return 'down'
+                else:
+                    return 'up'
+            elif nearest_dino[1] > dino.dino_y:
+                if 'down' not in actions:
+                    return 'up'
+                else:
+                    return 'down'
+    else:
+        nearest_dino = calculate_nearest_other_dino(dino, obs, criterion)
+        actions = valid_movement_avoiding_walls(dino,obs)
+        if nearest_dino:
+            if nearest_dino[0] < dino.dino_x:
+                if 'left' not in actions:
+                    return 'right'
+                else:
+                    return 'left'
+            elif nearest_dino[0] > dino.dino_x:
+                if 'right' not in actions:
+                    return 'left'
+                else:
+                    return 'right'
+            elif nearest_dino[1] < dino.dino_y:
+                if 'up' not in actions:
+                    return 'down'
+                else:
+                    return 'up'
+            elif nearest_dino[1] > dino.dino_y:
+                if 'down' not in actions:
+                    return 'up'
+                else:
+                    return 'down'
+            
+    return random.choice(['left', 'right', 'up', 'down'])
 
 def cowardDino(dino, obs):
     direction = goToNearestDino(dino, obs)
@@ -368,15 +477,30 @@ def calculate_weakest_dino_space(dino, obs):
 
     return weakest_dino_space
 
-def calculate_nearest_other_dino(dino, obs):
+def calculate_nearest_other_dino(dino, obs, colorCriterion='None'):
     min_distance = float('inf')
     nearest_dino = None
 
-    for dino_position in obs['other_dino_positions']:
-        distance = abs(dino_position[0] - dino.dino_x) + abs(dino_position[1] - dino.dino_y)
-        if distance < min_distance:
-            min_distance = distance
-            nearest_dino = dino_position
+    if colorCriterion == 'None':
+        for dino_position in obs['other_dino_positions']:
+            distance = abs(dino_position[0] - dino.dino_x) + abs(dino_position[1] - dino.dino_y)
+            if distance < min_distance:
+                min_distance = distance
+                nearest_dino = dino_position
+    elif colorCriterion == 'lower':
+        for dino_color in obs['other_dino_colors']:
+            if dino_color[0][0] < 126 and dino_color[0][1] < 126 and dino_color[0][2] < 126:
+                distance = abs(dino_color[1][0] - dino.dino_x) + abs(dino_color[1][1] - dino.dino_y) 
+                if distance < min_distance:
+                    min_distance = distance
+                    nearest_dino = dino_color[1]
+    else:
+        for dino_color in obs['other_dino_colors']:
+            if dino_color[0][0] >= 126 and dino_color[0][1] >= 126 and dino_color[0][2] >= 126:
+                distance = abs(dino_color[1][0] - dino.dino_x) + abs(dino_color[1][1] - dino.dino_y) 
+                if distance < min_distance:
+                    min_distance = distance
+                    nearest_dino = dino_color[1]
 
     return nearest_dino
 

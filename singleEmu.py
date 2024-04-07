@@ -2,7 +2,7 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
-from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, getStats
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, getStats, copDino, colorblindDino
 
 
 class Fullsimulation:
@@ -34,8 +34,7 @@ class Fullsimulation:
         self.dinos = populateDinoList(16)
         self.dino_pos = []
         self.death = []
-        self.behaviors = [goToGreensOnly, goToNearestDino,
-                          fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino]
         self.dino_behaviorFunc = {i: random.choice(
             self.behaviors) for i in self.dinos}
         for i in self.dino_behaviorFunc.items():
@@ -222,7 +221,7 @@ class Fullsimulation:
             if (dino.dino_x, dino.dino_y) != (currDino.dino_x, currDino.dino_y):
                 other_dino_positions.append((dino.dino_x, dino.dino_y))
                 other_dino_powers.append(dino.power)
-                other_dino_colors.append(dino.dino_color)
+                other_dino_colors.append((dino.dino_color, (dino.dino_x, dino.dino_y)))
                 other_dino_energy_consumption.append(dino.energyConsumption)
                 other_dino_energy.append(dino.energy)
                 other_dino_carn.append(dino.carnVal)
