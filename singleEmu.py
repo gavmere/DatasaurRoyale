@@ -228,12 +228,7 @@ class SinglePlayerHerbivoreSim:
             self.draw_grid()
             self.handle_events()
             for dino in self.dinos:
-<<<<<<< HEAD
-                self.handle_dino_behavior(dino)  # Call the new method to handle user-defined behavior
-                self.checkEnergy(dino)
-=======
                 self.handle_dino_behavior(dino, self.observeState(dino))  # Call the new method to handle user-defined behavior
->>>>>>> b0a4ac966da5316150844d61142b5e1ffb8c9fec
                 self.check_collisions(dino)
                 if len(self.green_squares) == 0:
                     self.generate_new_plants()
