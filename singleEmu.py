@@ -2,6 +2,7 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans
 
 class SinglePlayerHerbivoreSim:
     def __init__(self, autonomous = False):
@@ -10,8 +11,8 @@ class SinglePlayerHerbivoreSim:
         self.isAuto= autonomous
 
         # Set up the window
-        self.window_width = 800
-        self.window_height = 600
+        self.window_width = 1920
+        self.window_height = 1080
         self.screen = pygame.display.set_mode((self.window_width, self.window_height))
         pygame.display.set_caption("Behavior tester")
 
@@ -22,9 +23,10 @@ class SinglePlayerHerbivoreSim:
         self.grid_color = (128, 128, 128)
         
         #all dino settings
-        self.dinos = populateDinoList(16)
+        self.dinos = populateDinoList(5)
         self.dino_pos = []
-
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans]
+        self.dino_behaviorFunc = {i:random.choice(self.behaviors)for i in self.dinos}
         # Wall settings
         self.wall_size = 20
         self.wall_color = (0, 0, 0)
@@ -35,13 +37,9 @@ class SinglePlayerHerbivoreSim:
 
         # Green square settings
         self.green_squares = []
-        for _ in range(40):
-            new_x = random.randint(0, self.grid_width - 2)
-            new_y = random.randint(0, self.grid_height - 2)
-            self.green_squares.append((new_x, new_y))
-        self.green_square_size = 16
-        self.green_square_color = (0, 255, 0)
-
+        self.defaultNumPlants = 80
+        self.generate_new_plants(80)
+        
         # Score settings
         self.score = 0
         self.score_font = pygame.font.Font(None, 36)
@@ -51,7 +49,15 @@ class SinglePlayerHerbivoreSim:
 
         # Game loop
         self.running = True
-
+    def generate_new_plants(self, numPlants=None):
+        if not numPlants:
+            numPlants = self.defaultNumPlants
+        for _ in range(numPlants):
+            new_x = random.randint(1, self.grid_width - 2)
+            new_y = random.randint(1, self.grid_height - 2)
+            self.green_squares.append((new_x, new_y))
+        self.green_square_size = 16
+        self.green_square_color = (0, 255, 0)
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -115,23 +121,11 @@ class SinglePlayerHerbivoreSim:
                 dino.energy -= 1
             
 
-    def handle_dino_behavior(self, dino):
+    def handle_dino_behavior(self, dino, observations):
         if not self.isAuto:
             self.handle_dino_movement(dino)
 
-        possible_actions = ['left', 'right', 'up', 'down']
-        valid_actions = []
-
-        for action in possible_actions:
-            if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in self.walls) or \
-            (action == 'right' and (dino.dino_x+1, dino.dino_y) not in self.walls) or \
-            (action == 'up' and (dino.dino_x, dino.dino_y-1) not in self.walls) or \
-            (action == 'down' and (dino.dino_x, dino.dino_y+1) not in self.walls):
-                valid_actions.append(action)
-
-        if valid_actions:
-            action = random.choice(valid_actions)
-            self.handle_dino_movement(dino, action)
+        self.handle_dino_movement(dino, dino.calculateNextStep(observations, self.dino_behaviorFunc[dino]))
 
     def update_all_Dino_pos(self):
         self.dino_pos = []
@@ -197,7 +191,36 @@ class SinglePlayerHerbivoreSim:
 
     def update_display(self):
         pygame.display.flip()
+        
+    
 
+    def observeState(self, currDino):
+        empty_spaces = []
+        green_spaces = []
+        wall_spaces = []
+        other_dino_positions = []
+
+        for x in range(self.grid_width):
+            for y in range(self.grid_height):
+                if (x, y) not in self.green_squares and (x, y) != (currDino.dino_x, currDino.dino_y):
+                    empty_spaces.append((x, y))
+                elif (x, y) in self.green_squares:
+                    green_spaces.append((x, y))
+                elif (x, y) in self.walls:
+                    wall_spaces.append((x, y))
+
+        for dino in self.dinos:
+            if (dino.dino_x, dino.dino_y) != (currDino.dino_x, currDino.dino_y):
+                other_dino_positions.append((dino.dino_x, dino.dino_y))
+
+        observation = {
+            'empty_spaces': empty_spaces,
+            'green_spaces': green_spaces,
+            'wall_spaces': wall_spaces,
+            'other_dino_positions': other_dino_positions
+        }
+
+        return observation 
     def run(self):
         while self.running:
             self.screen.fill((0, 0, 0))
@@ -205,16 +228,22 @@ class SinglePlayerHerbivoreSim:
             self.draw_grid()
             self.handle_events()
             for dino in self.dinos:
+<<<<<<< HEAD
                 self.handle_dino_behavior(dino)  # Call the new method to handle user-defined behavior
                 self.checkEnergy(dino)
+=======
+                self.handle_dino_behavior(dino, self.observeState(dino))  # Call the new method to handle user-defined behavior
+>>>>>>> b0a4ac966da5316150844d61142b5e1ffb8c9fec
                 self.check_collisions(dino)
+                if len(self.green_squares) == 0:
+                    self.generate_new_plants()
                 self.draw_dino(dino)
                 self.draw_green_squares()
                 self.draw_score()
                 self.update_all_Dino_pos()
             self.update_display()
 
-            pygame.time.delay(100)
+            pygame.time.delay(16)
 
         pygame.quit()
 

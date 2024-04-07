@@ -4,8 +4,8 @@ class Dinosaur:
         #gamestats:
         self.dino_size = 20
         self.dino_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-        self.dino_x = random.randint(0, (800//20 - 2))
-        self.dino_y = random.randint(0, (600//20 - 2))
+        self.dino_x = random.randint(1, (1920//20 - 2))
+        self.dino_y = random.randint(1, (1080//20 - 2))
         # Stats
         self.currHealth = 100
         self.totalHealth = 100
@@ -132,11 +132,109 @@ class Dinosaur:
             return Dinosaur(new_traits)
         else:
             return
+    def calculateNextStep(self, obs, behaviorfunc):
+        return behaviorfunc(self, obs)
+
+def fiftyFftydinoPlans(dino, obs):
+    return random.choice([goToNearestDino(dino,obs), goToGreensOnly(dino, obs)])
+
+def goToNearestDino(dino, obs):
+    nearest_dino = calculate_nearest_other_dino(dino, obs)
+    if nearest_dino:
+        if nearest_dino[0] < dino.dino_x:
+            return 'left'
+        elif nearest_dino[0] > dino.dino_x:
+            return 'right'
+        elif nearest_dino[1] < dino.dino_y:
+            return 'up'
+        elif nearest_dino[1] > dino.dino_y:
+            return 'down'
+        
+    return random.choice(['left', 'right', 'up', 'down'])
+
+def goToGreensOnly(dino, obs):
+    nearest_green_space = calculate_nearest_green_space(dino, obs)
+    if nearest_green_space:
+        if nearest_green_space[0] < dino.dino_x:
+            return 'left'
+        elif nearest_green_space[0] > dino.dino_x:
+            return 'right'
+        elif nearest_green_space[1] < dino.dino_y:
+            return 'up'
+        elif nearest_green_space[1] > dino.dino_y:
+            return 'down'
+    return random.choice(['left', 'right', 'up', 'down'])
+#helperFunctions
+#dino is current dino we are looking at
+# observation = {
+#     'empty_spaces': empty_spaces,
+#     'green_spaces': green_spaces,
+#     'wall_spaces': wall_spaces,
+#     'other_dino_positions': other_dino_positions
+# }
+def calculate_nearest_green_space(dino, obs):
+    min_distance = float('inf')
+    nearest_green_space = None
+
+    for green_space in obs['green_spaces']:
+        distance = abs(green_space[0] - dino.dino_x) + abs(green_space[1] - dino.dino_y)
+        if distance < min_distance:
+            min_distance = distance
+            nearest_green_space = green_space
+
+    return nearest_green_space
+
+def calculate_nearest_other_dino(dino, obs):
+    min_distance = float('inf')
+    nearest_dino = None
+
+    for dino_position in obs['other_dino_positions']:
+        distance = abs(dino_position[0] - dino.dino_x) + abs(dino_position[1] - dino.dino_y)
+        if distance < min_distance:
+            min_distance = distance
+            nearest_dino = dino_position
+
+    return nearest_dino
+
+def calculate_nearest_wall(dino, obs):
+    min_distance = float('inf')
+    nearest_wall = None
+
+    for wall_space in obs['wall_spaces']:
+        distance = abs(wall_space[0] - dino.dino_x) + abs(wall_space[1] - dino.dino_y)
+        if distance < min_distance:
+            min_distance = distance
+            nearest_wall = wall_space
+
+    return nearest_wall
 
 
-#INHERIT THIS CLASS TO MAKE BEHAVIORS        
-class Behavior():
-    def calculateNextStep(observation):
-        return
+def calculate_nearest_group_of_green_spaces(dino, obs, group_size):
+    min_distance = float('inf')
+    nearest_group = None
+
+    for i in range(len(obs['green_spaces']) - group_size + 1):
+        group = obs['green_spaces'][i:i+group_size]
+        group_center = (sum(coord[0] for coord in group) // group_size, sum(coord[1] for coord in group) // group_size)
+        distance = abs(group_center[0] - dino.dino_x) + abs(group_center[1] - dino.dino_y)
+        if distance < min_distance:
+            min_distance = distance
+            nearest_group = group
+
+    return nearest_group
+#define begaviors
+#returns all valid positions not in walls
+def valid_movement_avoiding_walls(dino, obs):
+    possible_actions = ['left', 'right', 'up', 'down']
+    valid_actions = []
     
+    for action in possible_actions:
+        if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in self.walls) or \
+        (action == 'right' and (dino.dino_x+1, dino.dino_y) not in self.walls) or \
+        (action == 'up' and (dino.dino_x, dino.dino_y-1) not in self.walls) or \
+        (action == 'down' and (dino.dino_x, dino.dino_y+1) not in self.walls):
+            valid_actions.append(action)
+    return valid_actions
+
+
     
