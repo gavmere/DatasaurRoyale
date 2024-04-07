@@ -17,7 +17,7 @@ class Dinosaur:
         self.power = 100
         self.isAlive = True
         self.dino_behavior = None
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered]
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -383,7 +383,44 @@ def minConsumption(dino,obs):
             return 'up'
         elif minEnergyConsumption[1] > dino.dino_y:
             return 'down'
+
+def greenPrefered(dino,obs):
+    min_green_distance = float('inf')
+    nearest_green_space = None
     
+    min_dino_distance = float('inf')
+    nearest_dino = None
+    for dino_position, dino_power, green_space in zip(obs['other_dino_positions'], obs['other_dino_powers'], obs['green_spaces']):
+        green_distance = abs(green_space[0] - dino.dino_x) + abs(green_space[1] - dino.dino_y)
+        if green_distance < min_green_distance:
+            min_green_distance = green_distance
+            nearest_green_space = green_space
+
+        dino_distance = abs(dino_position[0] - dino.dino_x) + abs(dino_position[1] - dino.dino_y)
+        if dino_distance < min_dino_distance and dino_power < dino.power:
+            min_dino_distance = dino_distance
+            nearest_dino = dino_position
+    if nearest_green_space:
+        if nearest_dino and min_dino_distance <= min_green_distance:
+            if nearest_dino[0] < dino.dino_x:
+                return 'left'
+            elif nearest_dino[0] > dino.dino_x:
+                return 'right'
+            elif nearest_dino[1] < dino.dino_y:
+                return 'up'
+            elif nearest_dino[1] > dino.dino_y:
+                return 'down'
+        else:
+            if nearest_green_space[0] < dino.dino_x:
+                return 'left'
+            elif nearest_green_space[0] > dino.dino_x:
+                return 'right'
+            elif nearest_green_space[1] < dino.dino_y:
+                return 'up'
+            elif nearest_green_space[1] > dino.dino_y:
+                return 'down'
+        
+
 #helperFunctions
 #dino is current dino we are looking at
 # observation = {
