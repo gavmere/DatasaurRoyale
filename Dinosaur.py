@@ -138,14 +138,27 @@ class Dinosaur:
 
 def cowardDino(dino, obs):
     direction = goToNearestDino(dino, obs)
+    actions = valid_movement_avoiding_walls(dino, obs)
     if direction == 'left':
-        return 'right'
+        if 'right' not in actions:
+            return random.choice(actions)
+        else:
+            return 'right'
     elif direction == 'right':
-        return 'left'
+        if 'left' not in actions:
+            return random.choice(actions)
+        else:
+            return 'left'
     elif direction == 'up':
-        return 'down'
+        if 'down' not in actions:
+            return random.choice(actions)
+        else:
+            return 'down'
     else:
-        return 'up'
+        if 'up' not in actions:
+            return random.choice(actions)
+        else:
+            return 'up'
 
 def fiftyFftydinoPlans(dino, obs):
     return random.choice([goToNearestDino(dino,obs), goToGreensOnly(dino, obs)])
@@ -340,10 +353,10 @@ def valid_movement_avoiding_walls(dino, obs):
     valid_actions = []
     
     for action in possible_actions:
-        if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in dino.walls) or \
-        (action == 'right' and (dino.dino_x+1, dino.dino_y) not in dino.walls) or \
-        (action == 'up' and (dino.dino_x, dino.dino_y-1) not in dino.walls) or \
-        (action == 'down' and (dino.dino_x, dino.dino_y+1) not in dino.walls):
+        if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in dino.dino_walls) or \
+        (action == 'right' and (dino.dino_x+1, dino.dino_y) not in dino.dino_walls) or \
+        (action == 'up' and (dino.dino_x, dino.dino_y-1) not in dino.dino_walls) or \
+        (action == 'down' and (dino.dino_x, dino.dino_y+1) not in dino.dino_walls):
             valid_actions.append(action)
     return valid_actions
 

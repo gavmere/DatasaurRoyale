@@ -23,7 +23,7 @@ class Fullsimulation:
         self.grid_color = (128, 128, 128)
         
         #all dino settings
-        self.dinos = populateDinoList(5)
+        self.dinos = populateDinoList(16)
         self.dino_pos = []
         self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino]
         self.dino_behaviorFunc = {i:random.choice(self.behaviors)for i in self.dinos}
@@ -38,8 +38,8 @@ class Fullsimulation:
             dino.dino_walls = self.walls
         # Green square settings
         self.green_squares = []
-        self.defaultNumPlants = 80
-        self.generate_new_plants(80)
+        self.defaultNumPlants = 40
+        self.generate_new_plants(40)
         
         # Score settings
         self.score = 0
@@ -142,7 +142,7 @@ class Fullsimulation:
             if dino.dino_x == green_x and dino.dino_y == green_y:
                 self.green_squares.pop(i)
                 self.score += 1
-                dino.energy += 5
+                dino.energy += 5*dino.herbVal
 
         if (dino.dino_x, dino.dino_y) in self.walls:
             dino.dino_x = self.grid_width // 2
@@ -156,9 +156,11 @@ class Fullsimulation:
             if i != newDino:
                 DinoFunctions.combatSimulation(newDino, i)
                 if not dino.isAlive:
-                    self.dinos.remove(dino)
                     newDino = i
+                    newDino.energy += dino.energyConsumption*newDino.carnVal
+                    self.dinos.remove(dino)
                 elif not i.isAlive:
+                    dino.energy += i.energyConsumption*dino.carnVal
                     self.dinos.remove(i)
 
             
@@ -248,6 +250,7 @@ class Fullsimulation:
             self.handle_events()
             for dino in self.dinos:
                 self.handle_dino_behavior(dino, self.observeState(dino))  # Call the new method to handle user-defined behavior
+                self.checkEnergy(dino)
                 self.check_collisions(dino)
                 if len(self.green_squares) == 0:
                     self.generate_new_plants()
