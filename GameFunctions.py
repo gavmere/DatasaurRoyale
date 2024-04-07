@@ -7,7 +7,7 @@ def pickSize():
     return random.choice(sizeList)
 
 def pickMouth():
-    mouthList = ['Beak', 'Medium', 'Large']
+    mouthList = ['Beak', 'Herbivore Teeth', 'Carnivore Teeth']
     return random.choice(mouthList)
 
 def pickMobility():
@@ -15,15 +15,15 @@ def pickMobility():
     return random.choice(mobilityList)
 
 def pickCombat():
-    combatList = ['Spikes', 'Horns', 'Claws']
+    combatList = [None, 'Spikes', 'Horns', 'Claws']
     return random.choice(combatList)
 
 def pickNeck():
-    neckList = ['longNeck', 'normNeck']
+    neckList = ['longNeck', None]
     return random.choice(neckList)
 
 def pickTail():
-    tailList = ['noTail', 'Mobile Tail', 'Attack Tail']
+    tailList = [None, 'Mobile Tail', 'Attack Tail']
     return random.choice(tailList)
 
 
