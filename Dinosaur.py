@@ -136,6 +136,17 @@ class Dinosaur:
     def calculateNextStep(self, obs, behaviorfunc):
         return behaviorfunc(self, obs)
 
+def cowardDino(dino, obs):
+    direction = goToNearestDino(dino, obs)
+    if direction == 'left':
+        return 'right'
+    elif direction == 'right':
+        return 'left'
+    elif direction == 'up':
+        return 'down'
+    else:
+        return 'up'
+
 def fiftyFftydinoPlans(dino, obs):
     return random.choice([goToNearestDino(dino,obs), goToGreensOnly(dino, obs)])
 
@@ -321,7 +332,7 @@ def calculate_nearest_group_of_green_spaces(dino, obs, group_size):
             nearest_group = group
 
     return nearest_group
-#define begaviors
+#define behaviors
 
 #returns all valid positions not in walls
 def valid_movement_avoiding_walls(dino, obs):
