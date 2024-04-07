@@ -1,11 +1,19 @@
 import pygame
 import random
-import Dinosaur
+# import Dinosaur
 import DinoFunctions
+import GameFunctions
 class SinglePlayerHerbivoreSim:
     def __init__(self):
         # Initialize Pygame 
         pygame.init()
+
+        '''
+        Uncomment when implemented
+
+        self.dinoGame = GameFunctions()
+        self.dinoList = self.dinoGame.populateDinoList(4)
+        '''
 
         # Set up the window
         self.window_width = 800
@@ -18,6 +26,13 @@ class SinglePlayerHerbivoreSim:
         self.grid_width = self.window_width // self.grid_size
         self.grid_height = self.window_height // self.grid_size
         self.grid_color = (128, 128, 128)
+
+        # temp dinoList
+        self.dinoList = ['boo1', 'boo2', 'boo3', 'boo4']
+
+        self.dinoPos = {}
+        for i in self.dinoList:
+            self.dinoPos[i] = (random.randint(1, self.grid_width-2), random.randint(1, self.grid_height-2))
 
         # Player settings
         self.player_size = 20
@@ -101,10 +116,13 @@ class SinglePlayerHerbivoreSim:
             wallRect = pygame.Rect(wallX * self.grid_size, wallY * self.grid_size, self.grid_size, self.grid_size)
             pygame.draw.rect(self.screen, self.wall_color, wallRect)
 
-    def draw_player(self):
-        player_rect = pygame.Rect(self.player_x * self.grid_size, self.player_y * self.grid_size,
-                                  self.player_size, self.player_size)
-        pygame.draw.rect(self.screen, self.player_color, player_rect)
+    def draw_players(self):
+        for i in self.dinoList:
+            self.player_x = self.dinoPos[i][0]
+            self.player_y = self.dinoPos[i][1]
+            player_rect = pygame.Rect(self.player_x * self.grid_size, self.player_y * self.grid_size,
+                                    self.player_size, self.player_size)
+            pygame.draw.rect(self.screen, self.player_color, player_rect)
 
     def draw_score(self):
         score_text = self.score_font.render(f"Score: {self.score}", True, self.score_color)
@@ -123,7 +141,7 @@ class SinglePlayerHerbivoreSim:
             self.draw_grid()
             self.draw_green_squares()
             self.draw_walls()
-            self.draw_player()
+            self.draw_players()
             self.draw_score()
             self.update_display()
 
