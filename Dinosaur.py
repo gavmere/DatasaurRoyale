@@ -30,9 +30,9 @@ class Dinosaur:
             'Flying': 0.75,
             None: 1,
             'Long': 1}
-        self.energy = 100 * self.energyModifier[self.traits['Size']] * \
+        self.energy = int(100 * self.energyModifier[self.traits['Size']] * \
             self.energyModifier[self.traits['Mobility']] * \
-            self.energyModifier[self.traits['Neck']]
+            self.energyModifier[self.traits['Neck']])
 
         # Setting up Power
         self.powerModifier = {
@@ -92,7 +92,7 @@ class Dinosaur:
             'Small': 1,
             'Bipedal': 0.75,
             'Quadruped': 1.25,
-            'Aerial': 0.5,
+            'Flying': 0.5,
             None: 1
         }
         self.energyConsumption = round(

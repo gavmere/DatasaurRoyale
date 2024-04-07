@@ -12,7 +12,7 @@ class SinglePlayerHerbivoreSim(Dinosaur):
 
         # Populates environment
         self.dinoList = GameFunctions.populateDinoList(1)
-
+        self.dinoOpp = GameFunctions.populateDinoList(1)
         self.coords = []
 
         # Set up the window
@@ -34,6 +34,12 @@ class SinglePlayerHerbivoreSim(Dinosaur):
         self.player_x = 1
         self.player_y = 1
 
+        # Enemy Settings
+        self.enemy_size = 20
+        self.enemy_color = (0, 0, 255)
+        self.enemy_x = self.grid_width // 2
+        self.enemy_y = self.grid_width // 2 
+        
         # Wall settings
         self.wall_size = 20
         self.wall_color = (0, 0, 0)
@@ -109,6 +115,14 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 self.newDino_y = self.dinoPos[i][1] + 1
                 self.dinoPos[i] = (self.dinoPos[i][0], self.newDino_y)
                 self.dinoList[0].energy -= 1
+                print(self.dinoList[0].currHealth)
+                print(self.dinoList[0].totalHealth)
+                print(self.dinoList[0].carnVal)
+                print(self.dinoList[0].herbVal)
+                print(self.dinoList[0].energy)
+                print(self.dinoList[0].energyConsumption)
+                print(self.dinoList[0].power)
+                
             
 
     def check_collisions(self):
@@ -117,12 +131,15 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 if self.dinoPos[j][0] == green_x and self.dinoPos[j][1] == green_y:
                     self.green_squares.pop(i)
                     self.score += 1
-                    self.dinoList[0].energy += 2
+                    self.dinoList[0].energy += 4
 
         for i in self.dinoList:
             if self.dinoPos[i] in self.walls:
                 self.dinoPos.pop(i)
                 self.dinoList.remove(i)
+        
+        if self.player_x == self.enemy_x and self.player_y == self.enemy_y:
+            self.running = False
 
     def draw_grid(self):
         for x in range(self.grid_width):
@@ -152,6 +169,14 @@ class SinglePlayerHerbivoreSim(Dinosaur):
             player_rect = pygame.Rect(self.player_x * self.grid_size, self.player_y * self.grid_size,
                                       self.player_size, self.player_size)
             pygame.draw.rect(self.screen, self.player_color, player_rect)
+            
+    def draw_enemy(self):
+        for i in self.dinoOpp:
+            self.enemy_x = self.dinoPos[i][0]
+            self.enemy_y = self.dinoPos[i][1]
+            enemy_rect = pygame.Rect(self.enemy_x * self.grid_size, self.enemy_y * self.grid_size,
+                                    self.enemy_size, self.enemy_size)
+            pygame.draw.rect(self.screen, self.enemy_color, enemy_rect)
 
     def draw_score(self):
         score_text = self.score_font.render(

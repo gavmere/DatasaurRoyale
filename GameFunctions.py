@@ -19,7 +19,7 @@ def pickCombat():
     return random.choice(combatList)
 
 def pickNeck():
-    neckList = ['longNeck', None]
+    neckList = ['Long', None]
     return random.choice(neckList)
 
 def pickTail():
@@ -28,8 +28,7 @@ def pickTail():
 
 
 def createDino():
-    traitList = [pickSize(),pickMouth(),pickMobility(),pickCombat(),pickNeck(),pickTail()]
-    newDino = Dinosaur.Dinosaur(traits=traitList)
+    newDino = Dinosaur.Dinosaur(Size = pickSize(), Mouth = pickMouth(), Mobility = pickMobility(), Combat = pickCombat(), Neck = pickNeck(), Tail = pickTail())
     return newDino
 
 def populateDinoList(num, parent=None):
