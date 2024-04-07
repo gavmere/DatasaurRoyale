@@ -28,12 +28,12 @@ def pickTail():
 
 
 def createDino():
-    newDino = Dinosaur.dinosaur([])
+    newDino = Dinosaur.Dinosaur([pickSize(),pickMouth(),pickMobility(),pickCombat(),pickNeck(),pickTail()])
     return newDino
 
 def populateDinoList(num, parent=None):
     dinoList = []
     for i in range(num):
-        ...
+        dinoList.append(createDino())
     return dinoList
     
