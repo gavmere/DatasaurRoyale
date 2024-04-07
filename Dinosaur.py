@@ -177,7 +177,7 @@ def getStats(dino):
     return statList
 
 # animal focused, but goes for nearby plants
-def omnivoreDino(dino, obs):
+def dinoPreferred(dino, obs):
     nearest_dino = calculate_nearest_other_dino(dino, obs)
     nearest_plant = calculate_nearest_green_space(dino, obs)
     actions = valid_movement_avoiding_walls(dino, obs)
@@ -446,7 +446,7 @@ def minConsumption(dino,obs):
         elif minEnergyConsumption[1] > dino.dino_y:
             return 'down'
 
-def greenPrefered(dino,obs):
+def greenPreferred(dino,obs):
     min_green_distance = float('inf')
     nearest_green_space = None
     
