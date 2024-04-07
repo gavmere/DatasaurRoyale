@@ -6,6 +6,7 @@ class Dinosaur:
         self.dino_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         self.dino_x = random.randint(1, (1920//20 - 2))
         self.dino_y = random.randint(1, (1080//20 - 2))
+        self.dino_walls = None
         # Stats
         self.currHealth = 100
         self.totalHealth = 100
@@ -171,8 +172,15 @@ def goToGreensOnly(dino, obs):
 #     'green_spaces': green_spaces,
 #     'wall_spaces': wall_spaces,
 #     'other_dino_positions': other_dino_positions,
-#     'other_dino_powers':other_dino_powers
+#     'other_dino_powers':other_dino_powers,
+#     'other_dino_colors':other_dino_colors,
+#     'other_dino_energy_consumption': other_dino_energy_consumption,
+#     'other_dino_energy': other_dino_energy,
+#     'other_dino_herb': other_dino_herb,
+#     'other_dino_carn': other_dino_carn
 # }
+
+
 def calculate_nearest_green_space(dino, obs):
     min_distance = float('inf')
     nearest_green_space = None
@@ -184,6 +192,96 @@ def calculate_nearest_green_space(dino, obs):
             nearest_green_space = green_space
 
     return nearest_green_space
+
+
+
+def calculate_min_carn_dino_space(dino, obs):
+    min_carn_val = float('inf')
+    min_carn_dino_space = None
+
+    for dino_position, dino_carn_val in zip(obs['other_dino_positions'], obs['other_dino_carn']):
+        if dino_carn_val < min_carn_val:
+            min_carn_val = dino_carn_val
+            min_carn_dino_space = dino_position
+
+    return min_carn_dino_space
+
+def calculate_most_carn_dino_space(dino, obs):
+    max_carn_val = float('-inf')
+    most_carn_dino_space = None
+
+    for dino_position, dino_carn_val in zip(obs['other_dino_positions'], obs['other_dino_carn']):
+        if dino_carn_val > max_carn_val:
+            max_carn_val = dino_carn_val
+            most_carn_dino_space = dino_position
+
+    return most_carn_dino_space
+def calculate_min_herb_dino_space(dino, obs):
+    min_herb_val = float('inf')
+    min_herb_dino_space = None
+
+    for dino_position, dino_herb_val in zip(obs['other_dino_positions'], obs['other_dino_herb']):
+        if dino_herb_val < min_herb_val:
+            min_herb_val = dino_herb_val
+            min_herb_dino_space = dino_position
+
+    return min_herb_dino_space
+
+def calculate_most_herb_dino_space(dino, obs):
+    max_herb_val = float('-inf')
+    most_herb_dino_space = None
+
+    for dino_position, dino_herb_val in zip(obs['other_dino_positions'], obs['other_dino_herb']):
+        if dino_herb_val > max_herb_val:
+            max_herb_val = dino_herb_val
+            most_herb_dino_space = dino_position
+
+    return most_herb_dino_space
+
+
+def calculate_max_energy_consumption_space(dino, obs):
+    max_energy_consumption = float('-inf')
+    max_energy_consumption_space = None
+
+    for dino_position, dino_energy_consumption in zip(obs['other_dino_positions'], obs['other_dino_energy_consumption']):
+        if dino_energy_consumption > max_energy_consumption:
+            max_energy_consumption = dino_energy_consumption
+            max_energy_consumption_space = dino_position
+
+    return max_energy_consumption_space
+
+def calculate_min_energy_consumption_space(dino, obs):
+    min_energy_consumption = float('inf')
+    min_energy_consumption_space = None
+
+    for dino_position, dino_energy_consumption in zip(obs['other_dino_positions'], obs['other_dino_energy_consumption']):
+        if dino_energy_consumption < min_energy_consumption:
+            min_energy_consumption = dino_energy_consumptionin_energy_consumption = dino_energy_consumption
+            min_energy_consumption_space = dino_position
+
+    return min_energy_consumption_space
+
+
+def calculate_strongest_dino_space(dino, obs):
+    max_power = float('-inf')
+    strongest_dino_space = None
+
+    for dino_position, dino_power in zip(obs['other_dino_positions'], obs['other_dino_powers']):
+        if dino_power > max_power:
+            max_power = dino_power
+            strongest_dino_space = dino_position
+
+    return strongest_dino_space
+def calculate_weakest_dino_space(dino, obs):
+    min_power = float('inf')
+    weakest_dino_space = None
+
+    for dino_position, dino_power in zip(obs['other_dino_positions'], obs['other_dino_powers']):
+        if dino_power < min_power:
+            min_power = dino_power
+            weakest_dino_space = dino_position
+
+    return weakest_dino_space
 
 def calculate_nearest_other_dino(dino, obs):
     min_distance = float('inf')
@@ -224,16 +322,17 @@ def calculate_nearest_group_of_green_spaces(dino, obs, group_size):
 
     return nearest_group
 #define begaviors
+
 #returns all valid positions not in walls
 def valid_movement_avoiding_walls(dino, obs):
     possible_actions = ['left', 'right', 'up', 'down']
     valid_actions = []
     
     for action in possible_actions:
-        if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in self.walls) or \
-        (action == 'right' and (dino.dino_x+1, dino.dino_y) not in self.walls) or \
-        (action == 'up' and (dino.dino_x, dino.dino_y-1) not in self.walls) or \
-        (action == 'down' and (dino.dino_x, dino.dino_y+1) not in self.walls):
+        if (action == 'left' and (dino.dino_x-1, dino.dino_y) not in dino.walls) or \
+        (action == 'right' and (dino.dino_x+1, dino.dino_y) not in dino.walls) or \
+        (action == 'up' and (dino.dino_x, dino.dino_y-1) not in dino.walls) or \
+        (action == 'down' and (dino.dino_x, dino.dino_y+1) not in dino.walls):
             valid_actions.append(action)
     return valid_actions
 

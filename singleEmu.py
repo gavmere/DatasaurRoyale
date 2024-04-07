@@ -34,7 +34,8 @@ class Fullsimulation:
         self.walls.extend([(self.grid_width - 1, i) for i in range(self.grid_height)])
         self.walls.extend([(i, 0) for i in range(self.grid_width)])
         self.walls.extend([(i, self.grid_height - 1) for i in range(self.grid_width)])
-
+        for dino in self.dinos:
+            dino.dino_walls = self.walls
         # Green square settings
         self.green_squares = []
         self.defaultNumPlants = 80
@@ -201,6 +202,10 @@ class Fullsimulation:
         other_dino_positions = []
         other_dino_powers = []
         other_dino_colors = []
+        other_dino_energy_consumption = []
+        other_dino_energy = []
+        other_dino_herb = []
+        other_dino_carn = []
 
         for x in range(self.grid_width):
             for y in range(self.grid_height):
@@ -216,13 +221,22 @@ class Fullsimulation:
                 other_dino_positions.append((dino.dino_x, dino.dino_y))
                 other_dino_powers.append(dino.power)
                 other_dino_colors.append(dino.color_color)
+                other_dino_energy_consumption.append(dino.energyConsumption)
+                other_dino_energy.append(dino.energy)
+                other_dino_carn.append(dino.carnVal)
+                other_dino_carn.append(dino.herbVal)
 
         observation = {
             'empty_spaces': empty_spaces,
             'green_spaces': green_spaces,
             'wall_spaces': wall_spaces,
             'other_dino_positions': other_dino_positions,
-            'other_dino_powers':other_dino_powers
+            'other_dino_powers':other_dino_powers,
+            'other_dino_colors':other_dino_colors,
+            'other_dino_energy_consumption': other_dino_energy_consumption,
+            'other_dino_energy': other_dino_energy,
+            'other_dino_herb': other_dino_herb,
+            'other_dino_carn': other_dino_carn
         }
 
         return observation 
