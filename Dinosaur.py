@@ -16,6 +16,7 @@ class Dinosaur:
         self.energyConsumption = 0
         self.power = 100
         self.isAlive = True
+        self.dino_behavior = None
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -135,7 +136,10 @@ class Dinosaur:
         return youngling
 
     def calculateNextStep(self, obs, behaviorfunc):
-        return behaviorfunc(self, obs)
+        if self.dino_behavior == None:
+            return behaviorfunc(self, obs)
+        else:
+            return self.dino_behavior(self,obs)
 
 def cowardDino(dino, obs):
     direction = goToNearestDino(dino, obs)
