@@ -98,6 +98,7 @@ class SinglePlayerHerbivoreSim(Dinosaur):
 
         # Game loop
         self.running = True
+        self.reset = False
 
     def handle_events(self):
         for event in pygame.event.get():
@@ -126,6 +127,8 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 self.newDino_y = self.dinoPos[i][1] + 1
                 self.dinoPos[i] = (self.dinoPos[i][0], self.newDino_y)
                 self.dinoList[0].energy -= 1
+            elif keys[pygame.K_ESCAPE]:
+                self.running = False
                 '''print(self.dinoList[0].currHealth)
                 print(self.dinoList[0].totalHealth)
                 print(self.dinoList[0].carnVal)
@@ -147,14 +150,32 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 self.dinoPos.pop(i)
                 self.dinoList.remove(i)
 
-        if self.player_x == self.enemy_x and self.player_y == self.enemy_y:
-            DinoFunctions.combatSimulation(self.dinoList[0], self.dinoOpp[0])
-            if not self.dinoList[0].isAlive:
-                self.running = False
-                print("YOU DIED !!")
-            elif not self.dinoOpp[0].isAlive:
-                self.dinoOpp.pop()
-                print("OPP DOWN !!")
+        for i in self.dinoOpp:
+            if self.player_x == self.dinoOppPos[i][0] and self.player_y == self.dinoOppPos[i][1]:
+                DinoFunctions.combatSimulation(self.dinoList[0], self.dinoOpp[0])
+                if not self.dinoList[0].isAlive:
+                    self.reset = True
+                    print("YOU DIED !!")
+                    print("dino stats")
+                    print(self.dinoList[0].currHealth)
+                    print(self.dinoList[0].totalHealth)
+                    print(self.dinoList[0].carnVal)
+                    print(self.dinoList[0].herbVal)
+                    print(self.dinoList[0].energy)
+                    print(self.dinoList[0].energyConsumption)
+                    print(self.dinoList[0].power)
+                    print()
+                    print("dinoOpp stats")
+                    print(self.dinoOpp[0].currHealth)
+                    print(self.dinoOpp[0].totalHealth)
+                    print(self.dinoOpp[0].carnVal)
+                    print(self.dinoOpp[0].herbVal)
+                    print(self.dinoOpp[0].energy)
+                    print(self.dinoOpp[0].energyConsumption)
+                    print(self.dinoOpp[0].power)
+                elif not self.dinoOpp[0].isAlive:
+                    self.dinoOpp.pop()
+                    print("OPP DOWN !!")
 
     def draw_grid(self):
         for x in range(self.grid_width):
@@ -206,6 +227,21 @@ class SinglePlayerHerbivoreSim(Dinosaur):
     def update_display(self):
         pygame.display.flip()
 
+    def resetPos(self):
+        self.dinoList = GameFunctions.populateDinoList(1)
+
+        # Dinosaur settings
+        self.dinoPos = {}
+        for i in range(len(self.dinoList)):
+            self.dino_x = random.randint(1, self.grid_width - 2)
+            self.dino_y = random.randint(1, self.grid_height - 2)
+            while (self.dino_x, self.dino_y) in self.coords:
+                self.dino_x = random.randint(1, self.grid_width - 2)
+                self.dino_y = random.randint(1, self.grid_height - 2)
+            self.coords.append((self.dino_x, self.dino_y))
+            self.dinoPos[self.dinoList[i]] = (self.dino_x, self.dino_y)
+
+
     def run(self):
         while self.running:
             self.handle_events()
@@ -220,6 +256,11 @@ class SinglePlayerHerbivoreSim(Dinosaur):
             self.draw_score()
             self.draw_energy()
             self.update_display()
+
+            if self.reset:
+                self.dinoList.pop()
+                self.resetPos()
+                self.reset = False
 
             pygame.time.delay(100)
 
