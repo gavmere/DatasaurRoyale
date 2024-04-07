@@ -165,15 +165,28 @@ def fiftyFftydinoPlans(dino, obs):
 
 def goToNearestDino(dino, obs):
     nearest_dino = calculate_nearest_other_dino(dino, obs)
+    actions = valid_movement_avoiding_walls(dino,obs)
     if nearest_dino:
         if nearest_dino[0] < dino.dino_x:
-            return 'left'
+            if 'left' not in actions:
+                return 'right'
+            else:
+                return 'left'
         elif nearest_dino[0] > dino.dino_x:
-            return 'right'
+            if 'right' not in actions:
+                return 'left'
+            else:
+                return 'right'
         elif nearest_dino[1] < dino.dino_y:
-            return 'up'
+            if 'up' not in actions:
+                return 'down'
+            else:
+                return 'up'
         elif nearest_dino[1] > dino.dino_y:
-            return 'down'
+            if 'down' not in actions:
+                return 'up'
+            else:
+                return 'down'
         
     return random.choice(['left', 'right', 'up', 'down'])
 
