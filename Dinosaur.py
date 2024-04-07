@@ -17,7 +17,7 @@ class Dinosaur:
         self.power = 100
         self.isAlive = True
         self.dino_behavior = None
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered, wallHugger, scavanger]
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -420,7 +420,44 @@ def greenPrefered(dino,obs):
             elif nearest_green_space[1] > dino.dino_y:
                 return 'down'
         
-
+def wallHugger(dino,obs):
+    nearest_wall = calculate_nearest_wall(dino,obs)
+    actions = valid_movement_avoiding_walls(dino,obs)
+    if nearest_wall:
+        if nearest_wall[0] < dino.dino_x and 'left' in actions:
+            return 'left'
+        elif nearest_wall[0] > dino.dino_x and 'right' in actions:
+            return 'right'
+        elif nearest_wall[1] < dino.dino_y and 'up' in actions:
+            return 'up'
+        elif nearest_wall[1] > dino.dino_y and 'down' in actions:
+            return 'down'
+        else:
+            return random.choice(actions)
+        
+def scavanger(dino,obs):
+    min_distance = float('inf')
+    nearest_paralyzed = None
+    
+    for dino_position, dino_behavior in zip(obs['other_dino_positions'], obs['other_dino_behavior']):
+        dino_distance = abs(dino_position[0] - dino.dino_x) + abs(dino_position[1] - dino.dino_y)
+        if dino_distance < min_distance and dino_behavior == paralyzed:
+            min_distance = dino_distance
+            nearest_paralyzed = dino_position
+    
+    actions = valid_movement_avoiding_walls(dino,obs)
+    if nearest_paralyzed:
+        if nearest_paralyzed[0] < dino.dino_x:
+            return 'left'
+        elif nearest_paralyzed[0] > dino.dino_x:
+            return 'right'
+        elif nearest_paralyzed[1] < dino.dino_y:
+            return 'up'
+        elif nearest_paralyzed[1] > dino.dino_y:
+            return 'down'
+    else:
+        return random.choice(actions)
+        
 #helperFunctions
 #dino is current dino we are looking at
 # observation = {

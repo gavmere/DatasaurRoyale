@@ -2,7 +2,7 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
-from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, getStats, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, getStats, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered, wallHugger, scavanger
 
 
 class Fullsimulation:
@@ -34,7 +34,7 @@ class Fullsimulation:
         self.dinos = populateDinoList(16)
         self.dino_pos = []
         self.death = []
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered, wallHugger, scavanger]
         self.dino_behaviorFunc = {i: random.choice(
             self.behaviors) for i in self.dinos}
         for i in self.dino_behaviorFunc.items():
@@ -192,7 +192,7 @@ class Fullsimulation:
         print(f'generation {self.currGeneration}:' + getStats(self.dinos[0]), file=self.logfile)
         self.dinos = populateDinoList(12)
         self.dino_pos = []
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered, wallHugger, scavanger]
         self.dino_behaviorFunc = {i: random.choice(self.behaviors) for i in self.dinos}
         for i in self.dino_behaviorFunc.items():
             i[0].dino_behavior = i[1]
