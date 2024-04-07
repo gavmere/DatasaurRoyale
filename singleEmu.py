@@ -2,7 +2,7 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
-from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, getStats
 import pygame
 
 class Fullsimulation:
@@ -42,6 +42,7 @@ class Fullsimulation:
         self.generate_new_plants(self.defaultNumPlants)
         self.score = 0
         self.currGeneration = 0
+        self.logfile = open('winnerlog.txt', 'w')
 
     def generate_new_plants(self, numPlants=None):
         if not numPlants:
@@ -175,6 +176,7 @@ class Fullsimulation:
         pygame.display.flip()
     
     def reset_game(self):
+        print(f'generation {self.currGeneration}:' + getStats(self.dinos[0]), file=self.logfile)
         self.dinos = populateDinoList(16)
         self.dino_pos = []
         self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav]
@@ -243,6 +245,7 @@ class Fullsimulation:
                 self.update_all_Dino_pos()
             self.update_display()
             pygame.time.delay(16)
+        self.logfile.close()
         pygame.quit()
 
 # Create an instance of the Fullsimulation class and run the game
