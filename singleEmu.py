@@ -4,7 +4,7 @@ import DinoFunctions
 from GameFunctions import populateDinoList
 from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans
 
-class SinglePlayerHerbivoreSim:
+class Fullsimulation:
     def __init__(self, autonomous = False):
         # Initialize Pygame 
         pygame.init()
@@ -199,6 +199,8 @@ class SinglePlayerHerbivoreSim:
         green_spaces = []
         wall_spaces = []
         other_dino_positions = []
+        other_dino_powers = []
+        other_dino_colors = []
 
         for x in range(self.grid_width):
             for y in range(self.grid_height):
@@ -212,12 +214,15 @@ class SinglePlayerHerbivoreSim:
         for dino in self.dinos:
             if (dino.dino_x, dino.dino_y) != (currDino.dino_x, currDino.dino_y):
                 other_dino_positions.append((dino.dino_x, dino.dino_y))
+                other_dino_powers.append(dino.power)
+                other_dino_colors.append(dino.color_color)
 
         observation = {
             'empty_spaces': empty_spaces,
             'green_spaces': green_spaces,
             'wall_spaces': wall_spaces,
-            'other_dino_positions': other_dino_positions
+            'other_dino_positions': other_dino_positions,
+            'other_dino_powers':other_dino_powers
         }
 
         return observation 
@@ -245,5 +250,5 @@ class SinglePlayerHerbivoreSim:
 
     
 # Create an instance of the SinglePlayerHerbivoreSim class and run the game
-game = SinglePlayerHerbivoreSim(autonomous=True)
+game = Fullsimulation(autonomous=True)
 game.run()

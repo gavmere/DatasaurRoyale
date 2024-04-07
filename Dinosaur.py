@@ -170,7 +170,8 @@ def goToGreensOnly(dino, obs):
 #     'empty_spaces': empty_spaces,
 #     'green_spaces': green_spaces,
 #     'wall_spaces': wall_spaces,
-#     'other_dino_positions': other_dino_positions
+#     'other_dino_positions': other_dino_positions,
+#     'other_dino_powers':other_dino_powers
 # }
 def calculate_nearest_green_space(dino, obs):
     min_distance = float('inf')
