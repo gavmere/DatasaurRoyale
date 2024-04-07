@@ -206,6 +206,8 @@ def goToGreensOnly(dino, obs):
 def randomBehav(dino, obs):
     return random.choice(['left', 'right', 'up', 'down'])
 
+def paralyzed(dino, obs):
+    return 'stay'
 
     
 #helperFunctions
