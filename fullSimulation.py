@@ -16,7 +16,7 @@ class Fullsimulation:
     score_color = (255, 255, 255)
     score_x = 10
     score_y = 10
-    defaultNumPlants = 20
+    defaultNumPlants = 15
 
     def __init__(self, autonomous=False, funmode = False):
         self.funmode = funmode
