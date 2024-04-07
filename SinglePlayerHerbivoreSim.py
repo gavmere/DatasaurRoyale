@@ -1,23 +1,22 @@
 import pygame
 import random
-# import Dinosaur
+import Dinosaur
 import DinoFunctions
 import GameFunctions
+
+# make sure dinosaurs dont populate on grass
+# fix randomized dino coords
+
 class SinglePlayerHerbivoreSim:
     def __init__(self):
         # Initialize Pygame 
         pygame.init()
 
-        '''
-        Uncomment when implemented
-
-        self.dinoGame = GameFunctions()
-        self.dinoList = self.dinoGame.populateDinoList(4)
-        '''
+        self.dinoList = GameFunctions.populateDinoList(30)
 
         # Set up the window
         self.window_width = 800
-        self.window_height = 600
+        self.window_height = 800
         self.screen = pygame.display.set_mode((self.window_width, self.window_height))
         pygame.display.set_caption("Grid Movement")
 
@@ -26,9 +25,6 @@ class SinglePlayerHerbivoreSim:
         self.grid_width = self.window_width // self.grid_size
         self.grid_height = self.window_height // self.grid_size
         self.grid_color = (128, 128, 128)
-
-        # temp dinoList
-        self.dinoList = ['boo1', 'boo2', 'boo3', 'boo4']
 
         self.dinoPos = {}
         self.dino_x = random.sample(range(1, self.grid_width-2), len(self.dinoList))

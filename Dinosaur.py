@@ -22,7 +22,7 @@ class Dinosaur:
         self.traits = {**self.defaultTraits, **traits}
         
         #Setting up speed
-        self.speedModifiers = {
+        self.speedModifier = {
             'Large' : -1,
             'Medium' : 0,
             'Small' : 1,
@@ -33,7 +33,7 @@ class Dinosaur:
             'Mobile Tail': 1,
             'Attack Tail' : -1,
             'Long' : -1}
-        self.speed = 4 + self.speedModifiers[self.traits['Size']] + self.speedModifiers[self.traits['Mobility']] + self.speedModifiers[self.traits['Tail']] + self.speedModifiers[self.traits['Neck']]
+        self.speed = 4 + self.speedModifier[self.traits['Size']] + self.speedModifier[self.traits['Mobility']] + self.speedModifier[self.traits['Tail']] + self.speedModifier[self.traits['Neck']]
 
         #Setting up energy
         self.energyModifier = {
@@ -45,7 +45,7 @@ class Dinosaur:
             'Flying' : 0.75,
             None : 0,
             'Long': 1}
-        self.energy = 100 * self.energyModifiers[self.traits['Size']] * self.energyModifiers[self.traits['Mobility']] * self.energyModifiers[self.traits['Neck']]
+        self.energy = 100 * self.energyModifier[self.traits['Size']] * self.energyModifier[self.traits['Mobility']] * self.energyModifier[self.traits['Neck']]
 
         #Setting up Power
         self.powerModifier = {
@@ -53,7 +53,7 @@ class Dinosaur:
             'Medium' : 5,
             'Small' : 2,
             }
-        self.power *= self.energyModifiers[self.traits['Size']]
+        self.power *= self.energyModifier[self.traits['Size']]
 
         #Setting up carnVal
         self.carnValModifier = {'Large' : 1,
