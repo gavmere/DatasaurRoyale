@@ -56,45 +56,59 @@ class Dinosaur:
         self.power *= self.energyModifier[self.traits['Size']]
 
         #Setting up carnVal
-        self.carnValModifier = {'Large' : 1,
-                                'Medium' : 1,
-                                'Small' : 0.5,
-                                'Beak' : 1,
-                                'Herbivore Teeth' : 0.5,
-                                'Carnivore Teeth' : 1,
-                                'Spikes' : 0.5,
-                                'Horns' : 0.75,
-                                'Claws': 1,
-                                'Bipedal' : 1,
-                                'Quadruped' : 0.5,
-                                'Flying' : 1,
-                                'Long' : 0.5,
-                                None : 1,
-                                'Mobile Tail' : 1,
-                                'Attack Tail' : 0.75}
+        self.carnValModifier = {
+            'Large' : 1,
+            'Medium' : 1,
+            'Small' : 0.5,
+            'Beak' : 1,
+            'Herbivore Teeth' : 0.5,
+            'Carnivore Teeth' : 1,
+            'Spikes' : 0.5,
+            'Horns' : 0.75,
+            'Claws': 1,
+            'Bipedal' : 1,
+            'Quadruped' : 0.5,
+            'Flying' : 1,
+            'Long' : 0.5,
+            None : 1,
+            'Mobile Tail' : 1,
+            'Attack Tail' : 0.75
+            }
         self.carnVal *= self.carnValModifier[self.traits['Size']] * self.carnValModifier[self.traits['Mouth']] \
         * self.carnValModifier[self.traits['Mobility']] * self.carnValModifier[self.traits['Combat']] * self.carnValModifier[self.traits['Neck']] * self.carnValModifier[self.traits['Tail']]
 
         #Setting up herbVal
-        self.herbValModifier = {'Large' : 0.5,
-                                'Medium' : 0.75,
-                                'Small' : 1,
-                                'Beak' : 1,
-                                'Herbivore Teeth' : 1,
-                                'Carnivore Teeth' : 0.5,
-                                'Spikes' : 1,
-                                'Horns' : 1,
-                                'Claws': 0.5,
-                                'Bipedal' : 0.75,
-                                'Quadruped' : 1,
-                                'Flying' : 0.75,
-                                'Long' : 1,
-                                None : 1,
-                                'Mobile Tail' : 0.75,
-                                'Attack Tail' : 1}
+        self.herbValModifier = {
+            'Large' : 0.5,
+            'Medium' : 0.75,
+            'Small' : 1,
+            'Beak' : 1,
+            'Herbivore Teeth' : 1,
+            'Carnivore Teeth' : 0.5,
+            'Spikes' : 1,
+            'Horns' : 1,
+            'Claws': 0.5,
+            'Bipedal' : 0.75,
+            'Quadruped' : 1,
+            'Flying' : 0.75,
+            'Long' : 1,
+            None : 1,
+            'Mobile Tail' : 0.75,
+            'Attack Tail' : 1
+            }
         self.herbVal *= self.herbValModifier[self.traits['Size']] * self.herbValModifier[self.traits['Mouth']] \
         * self.herbValModifier[self.traits['Mobility']] * self.herbValModifier[self.traits['Combat']] * self.herbValModifier[self.traits['Neck']] * self.herbValModifier[self.traits['Tail']]
-        
+
+        self.energyConsumptionModifier = {
+            'Large' : 1.5,
+            'Medium' : 1.25,
+            'Small' : 1,
+            'Bipedal' : 0.75,
+            'Quadruped' : 1.25,
+            'Aerial' : 0.5
+            }   
+        self.energyConsumption = 100 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']]
+
     def child(self,other):
         if self.energy > 20:
             new_traits = self.traits
