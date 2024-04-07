@@ -4,16 +4,13 @@ import Dinosaur
 import DinoFunctions
 import GameFunctions
 
-# make sure dinosaurs dont populate on grass
-# fix randomized dino coords
-
 class SinglePlayerHerbivoreSim:
     def __init__(self):
         # Initialize Pygame 
         pygame.init()
 
         # Populates environment
-        self.dinoList = GameFunctions.populateDinoList(400)
+        self.dinoList = GameFunctions.populateDinoList(20)
 
         self.coords = []
 
