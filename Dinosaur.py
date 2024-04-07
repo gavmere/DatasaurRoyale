@@ -1,4 +1,5 @@
 import random
+import GameFunctions
 class Dinosaur:
     def __init__(self, **traits) -> None:
         #gamestats:
@@ -127,14 +128,55 @@ class Dinosaur:
             50 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']])
 
     def child(self, other):
-        new_traits = self.traits
+        new_traits = []
+        trait_mutation_behavior = []
         
-        for i in new_traits.items():
-            if i[1] == None:
-                new_traits[i[0]] = other.traits[i[0]]
+        for l in range(0,6,1):
+            trait_mutation_behavior.append(random.randint(1,100))
+        
+        if trait_mutation_behavior[0] < 49:
+            new_traits.append(self.traits['Size'])
+        elif trait_mutation_behavior[0] < 99:
+            new_traits.append(other.traits['Size'])
+        else:
+            new_traits.append(GameFunctions.pickSize())
+            
+        if trait_mutation_behavior[1] < 49:
+            new_traits.append(self.traits['Mouth'])
+        elif trait_mutation_behavior[1] < 99:
+            new_traits.append(other.traits['Mouth'])
+        else:
+            new_traits.append(GameFunctions.pickMouth())
                 
+        if trait_mutation_behavior[2] < 49:
+            new_traits.append(self.traits['Mobility'])
+        elif trait_mutation_behavior[2] < 99:
+            new_traits.append(other.traits['Mobility'])
+        else:
+            new_traits.append(GameFunctions.pickMobility())
+            
+        if trait_mutation_behavior[3] < 49:
+            new_traits.append(self.traits['Combat'])
+        elif trait_mutation_behavior[3] < 99:
+            new_traits.append(other.traits['Combat'])
+        else:
+            new_traits.append(GameFunctions.pickCombat())
+        
+        if trait_mutation_behavior[4] < 49:
+            new_traits.append(self.traits['Neck'])
+        elif trait_mutation_behavior[4] < 99:
+            new_traits.append(other.traits['Neck'])
+        else:
+            new_traits.append(GameFunctions.pickNeck())
+            
+        if trait_mutation_behavior[5] < 49:
+            new_traits.append(self.traits['Tail'])
+        elif trait_mutation_behavior[5] < 99:
+            new_traits.append(other.traits['Tail'])
+        else:
+            new_traits.append(GameFunctions.pickTail())
 
-        youngling = Dinosaur(**new_traits)
+        youngling = Dinosaur(Size = new_traits[0], Mouth = new_traits[1], Mobility = new_traits[2], Combat = new_traits[3], Neck = new_traits[4], Tail = new_traits[5])
         youngling.dino_color = ((self.dino_color[0] + other.dino_color[0]) // 2, (self.dino_color[1] + other.dino_color[1]) // 2, (self.dino_color[2] + other.dino_color[2]) // 2)
         mutation_behavior = random.randint(1,100)
         if mutation_behavior < 49:

@@ -189,8 +189,8 @@ class Fullsimulation:
         pygame.display.flip()
     
     def reset_game(self):
-        print(f'generation {self.currGeneration}:' + getStats(self.dinos[0]), file=self.logfile)
-        self.dinos = populateDinoList(12)
+        print(f'generation {self.currGeneration}: ' + getStats(self.dinos[0]), file=self.logfile)
+        self.dinos = []
         self.dino_pos = []
         self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPreferred, dinoPreferred, wallHugger, scavanger]
         self.dino_behaviorFunc = {i: random.choice(self.behaviors) for i in self.dinos}
@@ -199,8 +199,9 @@ class Fullsimulation:
         self.old_gen = self.death[-8:]
         self.death = []
         for i in range(0,7,2):
-            self.dinos.append(self.old_gen[i+1].child(self.old_gen[i]))
-        for i in self.dinos[-4:]:
+            for j in range(0,4,1):
+                self.dinos.append(self.old_gen[i+1].child(self.old_gen[i]))
+        for i in self.dinos:
             self.dino_behaviorFunc[i] = i.dino_behavior
         for dino in self.dinos:
             dino.dino_walls = self.walls
@@ -275,7 +276,7 @@ class Fullsimulation:
 
 
 # Create an instance of the Fullsimulation class and run the game
-game = Fullsimulation(autonomous=True, funmode=True)
+game = Fullsimulation(autonomous=True, funmode=False)
 game.run()
 
 
