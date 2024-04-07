@@ -93,7 +93,7 @@ class Dinosaur:
             'Aerial' : 0.5,
             None : 1
             }   
-        self.energyConsumption = 100 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']]
+        self.energyConsumption = round(50 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']])
 
     def child(self,other):
         if self.energy > 20:
