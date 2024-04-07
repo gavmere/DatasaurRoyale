@@ -176,6 +176,68 @@ def getStats(dino):
 
     return statList
 
+# animal focused, but goes for nearby plants
+def dinoPreferred(dino, obs):
+    nearest_dino = calculate_nearest_other_dino(dino, obs)
+    nearest_plant = calculate_nearest_green_space(dino, obs)
+    actions = valid_movement_avoiding_walls(dino, obs)
+
+    if not nearest_dino:
+        return random.choice(actions)
+    
+    if not nearest_plant:
+        return random.choice(actions)
+
+    distance_to_dino = abs(nearest_dino[0] - dino.dino_x) + abs(nearest_dino[1] - dino.dino_y)
+    distance_to_plant = abs(nearest_plant[0] - dino.dino_x) + abs(nearest_plant[1] - dino.dino_y)
+
+    # compares distance to nearest dino to nearest plant
+    if distance_to_dino > distance_to_plant:
+        # go to plant
+        if nearest_plant[0] < dino.dino_x:
+            if 'left' not in actions:
+                return 'right'
+            else:
+                return 'left'
+        elif nearest_plant[0] > dino.dino_x:
+            if 'right' not in actions:
+                return 'left'
+            else:
+                return 'right'
+        elif nearest_plant[1] < dino.dino_y:
+            if 'up' not in actions:
+                return 'down'
+            else:
+                return 'up'
+        elif nearest_plant[1] > dino.dino_y:
+            if 'down' not in actions:
+                return 'up'
+            else:
+                return 'down'
+    else:
+        # go to dino
+        if nearest_dino[0] < dino.dino_x:
+            if 'left' not in actions:
+                return 'right'
+            else:
+                return 'left'
+        elif nearest_dino[0] > dino.dino_x:
+            if 'right' not in actions:
+                return 'left'
+            else:
+                return 'right'
+        elif nearest_dino[1] < dino.dino_y:
+            if 'up' not in actions:
+                return 'down'
+            else:
+                return 'up'
+        elif nearest_dino[1] > dino.dino_y:
+            if 'down' not in actions:
+                return 'up'
+            else:
+                return 'down'
+        
+
 def colorblindDino(dino, obs):
     colors = ['lower', 'higher']
     criterion = random.choice(colors)
@@ -384,7 +446,7 @@ def minConsumption(dino,obs):
         elif minEnergyConsumption[1] > dino.dino_y:
             return 'down'
 
-def greenPrefered(dino,obs):
+def greenPreferred(dino,obs):
     min_green_distance = float('inf')
     nearest_green_space = None
     
