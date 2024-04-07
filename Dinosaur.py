@@ -136,6 +136,30 @@ class Dinosaur:
     def calculateNextStep(self, obs, behaviorfunc):
         return behaviorfunc(self, obs)
 
+def getStats(dino):
+    statList = ""
+    for trait in dino.traits.values():
+        statList += str(trait)
+        statList += ","
+    statList += str(dino.currHealth)
+    statList += ","
+    statList += str(dino.totalHealth)
+    statList += ","
+    statList += str(dino.carnVal)
+    statList += ","
+    statList += str(dino.herbVal)
+    statList += ","
+    statList += str(dino.energy)
+    statList += ","
+    statList += str(dino.energyConsumption)
+    statList += ","
+    statList += str(dino.power)
+    statList += ","
+    statList += str(dino.isAlive)
+
+    return statList
+
+
 def cowardDino(dino, obs):
     direction = goToNearestDino(dino, obs)
     actions = valid_movement_avoiding_walls(dino, obs)
