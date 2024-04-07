@@ -12,7 +12,7 @@ class SinglePlayerHerbivoreSim:
         # Initialize Pygame 
         pygame.init()
 
-        self.dinoList = GameFunctions.populateDinoList(30)
+        self.dinoList = GameFunctions.populateDinoList(20)
 
         # Set up the window
         self.window_width = 800

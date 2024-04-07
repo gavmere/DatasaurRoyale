@@ -105,7 +105,8 @@ class Dinosaur:
             'Small' : 1,
             'Bipedal' : 0.75,
             'Quadruped' : 1.25,
-            'Aerial' : 0.5
+            'Aerial' : 0.5,
+            None : 1
             }   
         self.energyConsumption = 100 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']]
 
