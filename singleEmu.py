@@ -192,7 +192,7 @@ class Fullsimulation:
         print(f'generation {self.currGeneration}:' + getStats(self.dinos[0]), file=self.logfile)
         self.dinos = populateDinoList(12)
         self.dino_pos = []
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino]
         self.dino_behaviorFunc = {i: random.choice(self.behaviors) for i in self.dinos}
         for i in self.dino_behaviorFunc.items():
             i[0].dino_behavior = i[1]

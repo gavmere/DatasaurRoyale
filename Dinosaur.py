@@ -17,8 +17,7 @@ class Dinosaur:
         self.power = 100
         self.isAlive = True
         self.dino_behavior = None
-        self.behaviors = [goToGreensOnly, goToNearestDino,
-                          fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino]
 
         # Features of this dinosaur
         self.defaultTraits = {
