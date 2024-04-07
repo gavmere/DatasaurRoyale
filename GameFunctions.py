@@ -35,5 +35,7 @@ def populateDinoList(num, parent=None):
     dinoList = []
     for i in range(num):
         dinoList.append(createDino())
+    for i in dinoList:
+        print(Dinosaur.getStats(i))
     return dinoList
     
