@@ -90,18 +90,26 @@ class SinglePlayerHerbivoreSim(Dinosaur):
     def handle_player_movement(self):
         keys = pygame.key.get_pressed()
         for i in self.dinoList:
-            if keys[pygame.K_LEFT] and self.player_x > 0:
+            if self.dinoList[0].energy == 0:
+                self.dinoPos.pop(i)
+                self.dinoList.remove(i)
+            elif keys[pygame.K_LEFT] and self.player_x > 0:
                 self.newDino_x = self.dinoPos[i][0] - 1
                 self.dinoPos[i] = (self.newDino_x, self.dinoPos[i][1])
+                self.dinoList[0].energy -= 1
             elif keys[pygame.K_RIGHT] and self.player_x < self.grid_width - 1:
                 self.newDino_x = self.dinoPos[i][0] + 1
                 self.dinoPos[i] = (self.newDino_x, self.dinoPos[i][1])
+                self.dinoList[0].energy -= 1
             elif keys[pygame.K_UP] and self.player_y > 0:
                 self.newDino_y = self.dinoPos[i][1] - 1
                 self.dinoPos[i] = (self.dinoPos[i][0], self.newDino_y)
+                self.dinoList[0].energy -= 1
             elif keys[pygame.K_DOWN] and self.player_y < self.grid_height - 1:
                 self.newDino_y = self.dinoPos[i][1] + 1
                 self.dinoPos[i] = (self.dinoPos[i][0], self.newDino_y)
+                self.dinoList[0].energy -= 1
+            
 
     def check_collisions(self):
         for i, (green_x, green_y) in enumerate(self.green_squares):
@@ -109,6 +117,7 @@ class SinglePlayerHerbivoreSim(Dinosaur):
                 if self.dinoPos[j][0] == green_x and self.dinoPos[j][1] == green_y:
                     self.green_squares.pop(i)
                     self.score += 1
+                    self.dinoList[0].energy += 2
 
         for i in self.dinoList:
             if self.dinoPos[i] in self.walls:
