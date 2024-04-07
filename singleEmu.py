@@ -115,8 +115,8 @@ class Fullsimulation:
                 dino.dino_y += 1
                 dino.energy -= 1
         else:
-            if not action:
-                Exception('YOU FUCKIN DUMBASS')
+            if not action or action == "stay":
+                return
             if action == 'left' and dino.dino_x > 0:
                 dino.dino_x -= 1
                 dino.energy -= 1
