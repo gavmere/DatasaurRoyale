@@ -216,6 +216,7 @@ class Fullsimulation:
         other_dino_energy = []
         other_dino_herb = []
         other_dino_carn = []
+        other_dino_behavior = []
 
         for dino in self.dinos:
             if (dino.dino_x, dino.dino_y) != (currDino.dino_x, currDino.dino_y):
@@ -226,7 +227,7 @@ class Fullsimulation:
                 other_dino_energy.append(dino.energy)
                 other_dino_carn.append(dino.carnVal)
                 other_dino_carn.append(dino.herbVal)
-                other_dino_carn.append(dino.dino_behavior)
+                other_dino_behavior.append(dino.dino_behavior)
 
         observation = {
             'empty_spaces': [(x, y) for x in range(self.grid_width) for y in range(self.grid_height) if (x, y) not in self.green_squares and (x, y) != (currDino.dino_x, currDino.dino_y)],
