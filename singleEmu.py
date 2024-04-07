@@ -131,7 +131,7 @@ class Fullsimulation:
         if dino in self.dinos:
             for new_dino in [self.dinos[i] for i, (x,y) in enumerate(self.dino_pos) if x == dino.dino_x and y == dino.dino_y and dino != self.dinos[i]]:
                 DinoFunctions.combatSimulation(dino,new_dino)
-                if not dino.isAlive:
+                if not dino.isAlive and dino in self.dinos:
                     new_dino.energy += dino.energyConsumption * new_dino.carnVal
                     self.death.append(dino)
                     self.dinos.remove(dino)
@@ -239,7 +239,8 @@ class Fullsimulation:
             'other_dino_energy_consumption': other_dino_energy_consumption,
             'other_dino_energy': other_dino_energy,
             'other_dino_herb': other_dino_herb,
-            'other_dino_carn': other_dino_carn
+            'other_dino_carn': other_dino_carn,
+            'other_dino_behavior': other_dino_behavior
         }
 
         return observation

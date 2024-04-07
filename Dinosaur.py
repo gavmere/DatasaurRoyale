@@ -128,11 +128,11 @@ class Dinosaur:
 
     def child(self, other):
         new_traits = self.traits
-        """
-        for i in new_traits.values():
+        
+        for i in new_traits.items():
             if i[1] == None:
                 new_traits[i[0]] = other.traits[i[0]]
-                """
+                
 
         youngling = Dinosaur(**new_traits)
         youngling.dino_color = ((self.dino_color[0] + other.dino_color[0]) // 2, (self.dino_color[1] + other.dino_color[1]) // 2, (self.dino_color[2] + other.dino_color[2]) // 2)
@@ -171,6 +171,8 @@ def getStats(dino):
     statList += str(dino.power)
     statList += ","
     statList += str(dino.isAlive)
+    statList += ","
+    statList += str(dino.dino_behavior)
 
     return statList
 
