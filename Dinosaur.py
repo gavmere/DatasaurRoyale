@@ -5,7 +5,6 @@ class Dinosaur:
         self.totalHealth = 100
         self.carnVal = 1
         self.herbVal = 1
-        self.speed = 0
         self.energy = 0
         self.energyConsumption = 0
         self.power = 100
@@ -21,20 +20,6 @@ class Dinosaur:
             }
         self.traits = {**self.defaultTraits, **traits}
         
-        #Setting up speed
-        self.speedModifier = {
-            'Large' : -1,
-            'Medium' : 0,
-            'Small' : 1,
-            'Bipedal' : 1,
-            'Quadruped' : -1,
-            'Flying' : 1,
-            None : 0,
-            'Mobile Tail': 1,
-            'Attack Tail' : -1,
-            'Long' : -1}
-        self.speed = 4 + self.speedModifier[self.traits['Size']] + self.speedModifier[self.traits['Mobility']] + self.speedModifier[self.traits['Tail']] + self.speedModifier[self.traits['Neck']]
-
         #Setting up energy
         self.energyModifier = {
             'Large' : 1.5,
