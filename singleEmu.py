@@ -38,6 +38,8 @@ class Fullsimulation:
                           fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed]
         self.dino_behaviorFunc = {i: random.choice(
             self.behaviors) for i in self.dinos}
+        for i in self.dino_behaviorFunc.items():
+            i[0].dino_behavior = i[1]
         self.walls = [(0, i) for i in range(self.grid_height)] + [(self.grid_width - 1, i) for i in range(self.grid_height)] + \
             [(i, 0) for i in range(self.grid_width)] + \
             [(i, self.grid_height - 1) for i in range(self.grid_width)]
@@ -124,7 +126,7 @@ class Fullsimulation:
                 self.score += 1
                 dino.energy += 5 * dino.herbVal
 
-        if (dino.dino_x, dino.dino_y) in self.walls:
+        if (dino.dino_x, dino.dino_y) in self.walls and dino in self.dinos:
             self.death.append(dino)
             self.dinos.remove(dino)
         if dino in self.dinos:
@@ -189,10 +191,18 @@ class Fullsimulation:
     
     def reset_game(self):
         print(f'generation {self.currGeneration}:' + getStats(self.dinos[0]), file=self.logfile)
-        self.dinos = populateDinoList(16)
+        self.dinos = populateDinoList(12)
         self.dino_pos = []
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed]
         self.dino_behaviorFunc = {i: random.choice(self.behaviors) for i in self.dinos}
+        for i in self.dino_behaviorFunc.items():
+            i[0].dino_behavior = i[1]
+        self.old_gen = self.death[-8:]
+        self.death = []
+        for i in range(0,7,2):
+            self.dinos.append(self.old_gen[i+1].child(self.old_gen[i]))
+        for i in self.dinos[-4:]:
+            self.dino_behaviorFunc[i] = i.dino_behavior
         for dino in self.dinos:
             dino.dino_walls = self.walls
         self.green_squares = []
@@ -217,6 +227,7 @@ class Fullsimulation:
                 other_dino_energy.append(dino.energy)
                 other_dino_carn.append(dino.carnVal)
                 other_dino_carn.append(dino.herbVal)
+                other_dino_carn.append(dino.dino_behavior)
 
         observation = {
             'empty_spaces': [(x, y) for x in range(self.grid_width) for y in range(self.grid_height) if (x, y) not in self.green_squares and (x, y) != (currDino.dino_x, currDino.dino_y)],
@@ -246,7 +257,7 @@ class Fullsimulation:
                 self.check_collisions(dino)
                 if len(self.green_squares) == 0:
                     self.generate_new_plants()
-                if len(self.dinos) == 1:
+                if len(self.dinos) <= 1:
                     self.reset_game()
                 self.draw_dino(dino)
                 

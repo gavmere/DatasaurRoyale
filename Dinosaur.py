@@ -17,6 +17,8 @@ class Dinosaur:
         self.power = 100
         self.isAlive = True
         self.dino_behavior = None
+        self.behaviors = [goToGreensOnly, goToNearestDino,
+                          fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed]
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -127,12 +129,21 @@ class Dinosaur:
 
     def child(self, other):
         new_traits = self.traits
+        """
         for i in new_traits.values():
             if i[1] == None:
                 new_traits[i[0]] = other.traits[i[0]]
+                """
 
-        youngling = Dinosaur(new_traits)
+        youngling = Dinosaur(**new_traits)
         youngling.dino_color = ((self.dino_color[0] + other.dino_color[0]) // 2, (self.dino_color[1] + other.dino_color[1]) // 2, (self.dino_color[2] + other.dino_color[2]) // 2)
+        mutation_behavior = random.randint(1,100)
+        if mutation_behavior < 49:
+            youngling.dino_behavior = self.dino_behavior
+        elif mutation_behavior < 99:
+            youngling.dino_behavior = other.dino_behavior
+        else:
+            youngling.dino_behavior = random.choice(self.behaviors)
         return youngling
 
     def calculateNextStep(self, obs, behaviorfunc):
