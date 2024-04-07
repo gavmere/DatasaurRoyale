@@ -161,6 +161,7 @@ def getStats(dino):
     return statList
 
 
+
 def cowardDino(dino, obs):
     direction = goToNearestDino(dino, obs)
     actions = valid_movement_avoiding_walls(dino, obs)
