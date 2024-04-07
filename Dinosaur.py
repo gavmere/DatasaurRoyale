@@ -17,7 +17,7 @@ class Dinosaur:
         self.power = 100
         self.isAlive = True
         self.dino_behavior = None
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption]
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -354,11 +354,35 @@ def goToGreensOnly(dino, obs):
     return random.choice(['left', 'right', 'up', 'down'])
 
 def randomBehav(dino, obs):
-    return random.choice(['left', 'right', 'up', 'down'])
+    actions = valid_movement_avoiding_walls(dino,obs)
+    return random.choice(actions)
 
 def paralyzed(dino, obs):
     return 'stay'
 
+def maxConsumption(dino,obs):
+    maxEnergyConsumption = calculate_max_energy_consumption_space(dino,obs)
+    if maxEnergyConsumption:
+        if maxEnergyConsumption[0] < dino.dino_x:
+            return 'left'
+        elif maxEnergyConsumption[0] > dino.dino_x:
+            return 'right'
+        elif maxEnergyConsumption[1] < dino.dino_y:
+            return 'up'
+        elif maxEnergyConsumption[1] > dino.dino_y:
+            return 'down'
+
+def minConsumption(dino,obs):
+    minEnergyConsumption = calculate_min_energy_consumption_space(dino,obs)
+    if minEnergyConsumption:
+        if minEnergyConsumption[0] < dino.dino_x:
+            return 'left'
+        elif minEnergyConsumption[0] > dino.dino_x:
+            return 'right'
+        elif minEnergyConsumption[1] < dino.dino_y:
+            return 'up'
+        elif minEnergyConsumption[1] > dino.dino_y:
+            return 'down'
     
 #helperFunctions
 #dino is current dino we are looking at
