@@ -1,5 +1,6 @@
 import pygame
 import random
+import DinoFunctions
 from GameFunctions import populateDinoList
 
 class SinglePlayerHerbivoreSim:
@@ -87,23 +88,31 @@ class SinglePlayerHerbivoreSim:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_LEFT] and dino.dino_x > 0:
                 dino.dino_x -= 1
+                dino.energy -= 1
             elif keys[pygame.K_RIGHT] and dino.dino_x < self.grid_width - 1:
                 dino.dino_x += 1
+                dino.energy -= 1
             elif keys[pygame.K_UP] and dino.dino_y > 0:
                 dino.dino_y -= 1
+                dino.energy -= 1
             elif keys[pygame.K_DOWN] and dino.dino_y < self.grid_height - 1:
                 dino.dino_y += 1
+                dino.energy -= 1
         else:
             if not action:
                 Exception('YOU FUCKIN DUMBASS')
             if action == 'left' and dino.dino_x > 0:
                 dino.dino_x -= 1
+                dino.energy -= 1
             elif action == 'right' and dino.dino_x < self.grid_width - 1:
                 dino.dino_x += 1
+                dino.energy -= 1
             elif action == 'up' and dino.dino_y > 0:
                 dino.dino_y -= 1
+                dino.energy -= 1
             elif action == 'down' and dino.dino_y < self.grid_height - 1:
                 dino.dino_y += 1
+                dino.energy -= 1
             
 
     def handle_dino_behavior(self, dino):
@@ -129,17 +138,34 @@ class SinglePlayerHerbivoreSim:
         for dino in self.dinos:
             self.dino_pos.append((dino.dino_x, dino.dino_y))
             
+    def checkEnergy(self, dino):
+        if dino.energy <= 0:
+            self.dinos.remove(dino)
+
     def check_collisions(self, dino):
         for i, (green_x, green_y) in enumerate(self.green_squares):
             if dino.dino_x == green_x and dino.dino_y == green_y:
                 self.green_squares.pop(i)
                 self.score += 1
+                dino.energy += 5
 
         if (dino.dino_x, dino.dino_y) in self.walls:
             dino.dino_x = self.grid_width // 2
             dino.dino_y = self.grid_height // 2
 
-        if ((dino.dino_x, dino.dino_y) in self.dino_pos) and ((dino.dino_x, dino.dino_y) != self.dino_pos[dino]):
+
+        indices = [i for i, (x,y) in enumerate(self.dino_pos) if x == dino.dino_x and y == dino.dino_y]
+        dino_battle = [self.dinos[i] for i in indices]
+        for i in dino_battle:
+            newDino = dino
+            if i != newDino:
+                DinoFunctions.combatSimulation(newDino, i)
+                if not dino.isAlive:
+                    self.dinos.remove(dino)
+                    newDino = i
+                elif not i.isAlive:
+                    self.dinos.remove(i)
+
             
 
     def draw_grid(self):
@@ -180,6 +206,7 @@ class SinglePlayerHerbivoreSim:
             self.handle_events()
             for dino in self.dinos:
                 self.handle_dino_behavior(dino)  # Call the new method to handle user-defined behavior
+                self.checkEnergy(dino)
                 self.check_collisions(dino)
                 self.draw_dino(dino)
                 self.draw_green_squares()
