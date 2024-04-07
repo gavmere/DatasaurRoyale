@@ -1,4 +1,4 @@
-class dinosaur:
+class Dinosaur:
     def __init__(self, **traits) -> None:
         #Stats
         self.currHealth = 100
@@ -54,6 +54,46 @@ class dinosaur:
             'Small' : 2,
             }
         self.power *= self.energyModifiers[self.traits['Size']]
+
+        #Setting up carnVal
+        self.carnValModifier = {'Large' : 1,
+                                'Medium' : 1,
+                                'Small' : 0.66,
+                                'Beak' : 1,
+                                'Herbivore Teeth' : 0.5,
+                                'Carnivore Teeth' : 1,
+                                'Spikes' : 0.75,
+                                'Horns' : 1,
+                                'Claws': 1,
+                                'Bipedal' : 1,
+                                'Quadruped' : 1,
+                                'Flying' : 1,
+                                'Long' : 0.66,
+                                None : 1,
+                                'Mobile Tail' : 1,
+                                'Attack Tail' : 1,}
+        self.carnVal *= self.carnValModifier[self.traits['Size']] * self.carnValModifier[self.traits['Mouth']] \
+        * self.carnValModifier[self.traits['Mobility']] * self.carnValModifier[self.traits['Combat']] * self.carnValModifier[self.traits['Neck']] * self.carnValModifier[self.traits['Tail']]
+
+        #Setting up herbVal
+        self.carnValModifier = {'Large' : 1,
+                                'Medium' : 1,
+                                'Small' : 0.66,
+                                'Beak' : 1,
+                                'Herbivore Teeth' : 0.5,
+                                'Carnivore Teeth' : 1,
+                                'Spikes' : 0.75,
+                                'Horns' : 1,
+                                'Claws': 1,
+                                'Bipedal' : 1,
+                                'Quadruped' : 1,
+                                'Flying' : 1,
+                                'Long' : 0.66,
+                                None : 1,
+                                'Mobile Tail' : 1,
+                                'Attack Tail' : 1,}
+        self.carnVal *= self.carnValModifier[self.traits['Size']] * self.carnValModifier[self.traits['Mouth']] \
+        * self.carnValModifier[self.traits['Mobility']] * self.carnValModifier[self.traits['Combat']] * self.carnValModifier[self.traits['Neck']] * self.carnValModifier[self.traits['Tail']]
         
     def child(self,other):
         if self.energy > 20:
@@ -61,6 +101,6 @@ class dinosaur:
             for i in new_traits.values():
                 if i[1] == None:
                     new_traits[i[0]] = other.traits[i[0]]
-            return dinosaur(new_traits)
+            return Dinosaur(new_traits)
         else:
             return
