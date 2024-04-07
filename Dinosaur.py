@@ -17,7 +17,7 @@ class Dinosaur:
         self.power = 100
         self.isAlive = True
         self.dino_behavior = None
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino]
+        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPrefered]
 
         # Features of this dinosaur
         self.defaultTraits = {
@@ -416,12 +416,73 @@ def goToGreensOnly(dino, obs):
     return random.choice(['left', 'right', 'up', 'down'])
 
 def randomBehav(dino, obs):
-    return random.choice(['left', 'right', 'up', 'down'])
+    actions = valid_movement_avoiding_walls(dino,obs)
+    return random.choice(actions)
 
 def paralyzed(dino, obs):
     return 'stay'
 
+def maxConsumption(dino,obs):
+    maxEnergyConsumption = calculate_max_energy_consumption_space(dino,obs)
+    if maxEnergyConsumption:
+        if maxEnergyConsumption[0] < dino.dino_x:
+            return 'left'
+        elif maxEnergyConsumption[0] > dino.dino_x:
+            return 'right'
+        elif maxEnergyConsumption[1] < dino.dino_y:
+            return 'up'
+        elif maxEnergyConsumption[1] > dino.dino_y:
+            return 'down'
+
+def minConsumption(dino,obs):
+    minEnergyConsumption = calculate_min_energy_consumption_space(dino,obs)
+    if minEnergyConsumption:
+        if minEnergyConsumption[0] < dino.dino_x:
+            return 'left'
+        elif minEnergyConsumption[0] > dino.dino_x:
+            return 'right'
+        elif minEnergyConsumption[1] < dino.dino_y:
+            return 'up'
+        elif minEnergyConsumption[1] > dino.dino_y:
+            return 'down'
+
+def greenPrefered(dino,obs):
+    min_green_distance = float('inf')
+    nearest_green_space = None
     
+    min_dino_distance = float('inf')
+    nearest_dino = None
+    for dino_position, dino_power, green_space in zip(obs['other_dino_positions'], obs['other_dino_powers'], obs['green_spaces']):
+        green_distance = abs(green_space[0] - dino.dino_x) + abs(green_space[1] - dino.dino_y)
+        if green_distance < min_green_distance:
+            min_green_distance = green_distance
+            nearest_green_space = green_space
+
+        dino_distance = abs(dino_position[0] - dino.dino_x) + abs(dino_position[1] - dino.dino_y)
+        if dino_distance < min_dino_distance and dino_power < dino.power:
+            min_dino_distance = dino_distance
+            nearest_dino = dino_position
+    if nearest_green_space:
+        if nearest_dino and min_dino_distance <= min_green_distance:
+            if nearest_dino[0] < dino.dino_x:
+                return 'left'
+            elif nearest_dino[0] > dino.dino_x:
+                return 'right'
+            elif nearest_dino[1] < dino.dino_y:
+                return 'up'
+            elif nearest_dino[1] > dino.dino_y:
+                return 'down'
+        else:
+            if nearest_green_space[0] < dino.dino_x:
+                return 'left'
+            elif nearest_green_space[0] > dino.dino_x:
+                return 'right'
+            elif nearest_green_space[1] < dino.dino_y:
+                return 'up'
+            elif nearest_green_space[1] > dino.dino_y:
+                return 'down'
+        
+
 #helperFunctions
 #dino is current dino we are looking at
 # observation = {

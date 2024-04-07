@@ -1,5 +1,0 @@
-generation 0:Medium,Carnivore Teeth,Quadruped,Spikes,None,Attack Tail,43.0,100,0.1875,0.375,17.125,78,595,True,<function goToGreensOnly at 0x1053d4680>
-generation 1:Large,Herbivore Teeth,Bipedal,Horns,Long,Mobile Tail,61.522999999999996,100,0.1875,0.28125,14.8125,56,1050,True,<function goToNearestDino at 0x1053d45e0>
-generation 2:Large,Carnivore Teeth,Quadruped,Spikes,None,Mobile Tail,100,100,0.25,0.1875,68.4375,94,1065,True,<function goToNearestDino at 0x1053d45e0>
-generation 3:Large,Beak,Bipedal,None,None,None,87.0,100,1,0.375,634.75,56,1060,True,<function goToNearestDino at 0x1053d45e0>
-generation 4:Large,Herbivore Teeth,Quadruped,Claws,Long,Mobile Tail,100,100,0.125,0.1875,20,94,1030,True,<function cowardDino at 0x1053d44a0>
