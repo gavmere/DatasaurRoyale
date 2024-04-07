@@ -212,6 +212,8 @@ class Fullsimulation:
                 self.update_all_Dino_pos()
             self.update_display()
             pygame.time.delay(1)
+        self.death = self.death[8:]
+        print(self.death)
         pygame.quit()
 
 # Create an instance of the Fullsimulation class and run the game
