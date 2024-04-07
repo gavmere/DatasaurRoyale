@@ -28,6 +28,7 @@ class Fullsimulation:
         self.running = True
         self.dinos = populateDinoList(16)
         self.dino_pos = []
+        self.death = []
         self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav]
         self.dino_behaviorFunc = {i: random.choice(self.behaviors) for i in self.dinos}
         self.walls = [(0, i) for i in range(self.grid_height)] + [(self.grid_width - 1, i) for i in range(self.grid_height)] + [(i, 0) for i in range(self.grid_width)] + [(i, self.grid_height - 1) for i in range(self.grid_width)]
@@ -100,6 +101,7 @@ class Fullsimulation:
 
     def checkEnergy(self, dino):
         if dino.energy <= 0:
+            self.death.append(dino)
             self.dinos.remove(dino)
 
     def check_collisions(self, dino):
@@ -110,8 +112,8 @@ class Fullsimulation:
                 dino.energy += 5 * dino.herbVal
 
         if (dino.dino_x, dino.dino_y) in self.walls:
-            dino.dino_x = self.grid_width // 2
-            dino.dino_y = self.grid_height // 2
+            self.death.append(dino)
+            self.dinos.remove(dino)
 
         indices = [i for i, (x, y) in enumerate(self.dino_pos) if x == dino.dino_x and y == dino.dino_y]
         dino_battle = [self.dinos[i] for i in indices]
@@ -122,9 +124,11 @@ class Fullsimulation:
                 if not dino.isAlive:
                     newDino = i
                     newDino.energy += dino.energyConsumption * newDino.carnVal
+                    self.death.append(dino)
                     self.dinos.remove(dino)
                 elif not i.isAlive:
                     dino.energy += i.energyConsumption * dino.carnVal
+                    self.death.append(i)
                     self.dinos.remove(i)
 
     def draw_grid(self):
@@ -207,7 +211,7 @@ class Fullsimulation:
                 self.draw_score()
                 self.update_all_Dino_pos()
             self.update_display()
-            pygame.time.delay(16)
+            pygame.time.delay(1)
         pygame.quit()
 
 # Create an instance of the Fullsimulation class and run the game
