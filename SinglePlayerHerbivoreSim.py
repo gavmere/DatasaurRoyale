@@ -12,7 +12,7 @@ class SinglePlayerHerbivoreSim(Dinosaur):
 
         # Populates environment
         self.dinoList = GameFunctions.populateDinoList(1)
-        self.dinoOpp = GameFunctions.populateDinoList(1)
+        self.dinoOpp = GameFunctions.populateDinoList(20)
         self.coords = []
 
         # Set up the window

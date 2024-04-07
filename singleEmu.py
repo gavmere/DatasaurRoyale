@@ -2,18 +2,20 @@ import pygame
 import random
 import DinoFunctions
 from GameFunctions import populateDinoList
-from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino
+from Dinosaur import goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav
+
 
 class Fullsimulation:
-    def __init__(self, autonomous = False):
-        # Initialize Pygame 
+    def __init__(self, autonomous=False):
+        # Initialize Pygame
         pygame.init()
-        self.isAuto= autonomous
+        self.isAuto = autonomous
 
         # Set up the window
         self.window_width = 1920
         self.window_height = 1080
-        self.screen = pygame.display.set_mode((self.window_width, self.window_height))
+        self.screen = pygame.display.set_mode(
+            (self.window_width, self.window_height))
         pygame.display.set_caption("Behavior tester")
 
         # Grid settings
@@ -25,15 +27,20 @@ class Fullsimulation:
         #all dino settings
         self.dinos = populateDinoList(16)
         self.dino_pos = []
-        self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino]
-        self.dino_behaviorFunc = {i:random.choice(self.behaviors)for i in self.dinos}
+        self.behaviors = [goToGreensOnly, goToNearestDino,
+                          fiftyFftydinoPlans, cowardDino, randomBehav]
+
+        self.dino_behaviorFunc = {i: random.choice(
+            self.behaviors)for i in self.dinos}
         # Wall settings
         self.wall_size = 20
         self.wall_color = (0, 0, 0)
         self.walls = [(0, i) for i in range(self.grid_height)]
-        self.walls.extend([(self.grid_width - 1, i) for i in range(self.grid_height)])
+        self.walls.extend([(self.grid_width - 1, i)
+                          for i in range(self.grid_height)])
         self.walls.extend([(i, 0) for i in range(self.grid_width)])
-        self.walls.extend([(i, self.grid_height - 1) for i in range(self.grid_width)])
+        self.walls.extend([(i, self.grid_height - 1)
+                          for i in range(self.grid_width)])
         for dino in self.dinos:
             dino.dino_walls = self.walls
         # Green square settings
@@ -50,6 +57,7 @@ class Fullsimulation:
 
         # Game loop
         self.running = True
+
     def generate_new_plants(self, numPlants=None):
         if not numPlants:
             numPlants = self.defaultNumPlants
@@ -59,11 +67,12 @@ class Fullsimulation:
             self.green_squares.append((new_x, new_y))
         self.green_square_size = 16
         self.green_square_color = (0, 255, 0)
+
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
-                
+
     def report_observation(self):
         dino_spaces = []
         empty_spaces = []
@@ -87,7 +96,7 @@ class Fullsimulation:
             'red_box_spaces': red_box_spaces,
             'wall_spaces': wall_spaces
         }
-        
+
         return observation
 
     def handle_dino_movement(self, dino, action=None):
@@ -106,8 +115,8 @@ class Fullsimulation:
                 dino.dino_y += 1
                 dino.energy -= 1
         else:
-            if not action:
-                Exception('YOU FUCKIN DUMBASS')
+            if not action or action == "stay":
+                return
             if action == 'left' and dino.dino_x > 0:
                 dino.dino_x -= 1
                 dino.energy -= 1
@@ -120,19 +129,19 @@ class Fullsimulation:
             elif action == 'down' and dino.dino_y < self.grid_height - 1:
                 dino.dino_y += 1
                 dino.energy -= 1
-            
 
     def handle_dino_behavior(self, dino, observations):
         if not self.isAuto:
             self.handle_dino_movement(dino)
 
-        self.handle_dino_movement(dino, dino.calculateNextStep(observations, self.dino_behaviorFunc[dino]))
+        self.handle_dino_movement(dino, dino.calculateNextStep(
+            observations, self.dino_behaviorFunc[dino]))
 
     def update_all_Dino_pos(self):
         self.dino_pos = []
         for dino in self.dinos:
             self.dino_pos.append((dino.dino_x, dino.dino_y))
-            
+
     def checkEnergy(self, dino):
         if dino.energy <= 0:
             self.dinos.remove(dino)
@@ -148,8 +157,8 @@ class Fullsimulation:
             dino.dino_x = self.grid_width // 2
             dino.dino_y = self.grid_height // 2
 
-
-        indices = [i for i, (x,y) in enumerate(self.dino_pos) if x == dino.dino_x and y == dino.dino_y]
+        indices = [i for i, (x, y) in enumerate(
+            self.dino_pos) if x == dino.dino_x and y == dino.dino_y]
         dino_battle = [self.dinos[i] for i in indices]
         for i in dino_battle:
             newDino = dino
@@ -163,24 +172,25 @@ class Fullsimulation:
                     dino.energy += i.energyConsumption*dino.carnVal
                     self.dinos.remove(i)
 
-            
-
     def draw_grid(self):
         for x in range(self.grid_width):
             for y in range(self.grid_height):
-                rect = pygame.Rect(x * self.grid_size, y * self.grid_size, self.grid_size, self.grid_size)
+                rect = pygame.Rect(x * self.grid_size, y *
+                                   self.grid_size, self.grid_size, self.grid_size)
                 pygame.draw.rect(self.screen, self.grid_color, rect, 1)
 
     def draw_green_squares(self):
         for green_x, green_y in self.green_squares:
             green_rect = pygame.Rect(green_x * self.grid_size + (self.grid_size - self.green_square_size) // 2,
-                                     green_y * self.grid_size + (self.grid_size - self.green_square_size) // 2,
+                                     green_y * self.grid_size +
+                                     (self.grid_size - self.green_square_size) // 2,
                                      self.green_square_size, self.green_square_size)
             pygame.draw.rect(self.screen, self.green_square_color, green_rect)
 
     def draw_walls(self):
         for wallX, wallY in self.walls:
-            wallRect = pygame.Rect(wallX * self.grid_size, wallY * self.grid_size, self.grid_size, self.grid_size)
+            wallRect = pygame.Rect(
+                wallX * self.grid_size, wallY * self.grid_size, self.grid_size, self.grid_size)
             pygame.draw.rect(self.screen, self.wall_color, wallRect)
 
     def draw_dino(self, dino):
@@ -189,13 +199,12 @@ class Fullsimulation:
         pygame.draw.rect(self.screen, dino.dino_color, player_rect)
 
     def draw_score(self):
-        score_text = self.score_font.render(f"Score: {self.score}", True, self.score_color)
+        score_text = self.score_font.render(
+            f"Score: {self.score}", True, self.score_color)
         self.screen.blit(score_text, (self.score_x, self.score_y))
 
     def update_display(self):
         pygame.display.flip()
-        
-    
 
     def observeState(self, currDino):
         empty_spaces = []
@@ -233,15 +242,16 @@ class Fullsimulation:
             'green_spaces': green_spaces,
             'wall_spaces': wall_spaces,
             'other_dino_positions': other_dino_positions,
-            'other_dino_powers':other_dino_powers,
-            'other_dino_colors':other_dino_colors,
+            'other_dino_powers': other_dino_powers,
+            'other_dino_colors': other_dino_colors,
             'other_dino_energy_consumption': other_dino_energy_consumption,
             'other_dino_energy': other_dino_energy,
             'other_dino_herb': other_dino_herb,
             'other_dino_carn': other_dino_carn
         }
 
-        return observation 
+        return observation
+
     def run(self):
         while self.running:
             self.screen.fill((0, 0, 0))
@@ -265,7 +275,6 @@ class Fullsimulation:
         pygame.quit()
 
 
-    
 # Create an instance of the SinglePlayerHerbivoreSim class and run the game
 game = Fullsimulation(autonomous=True)
 game.run()

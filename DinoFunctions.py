@@ -1,9 +1,5 @@
 import random
 
-
-def calcFeatureScalar(dino):
-    return -1
-
 def eatOtherGuy(dino, calVal):
     dino.energy += calVal*dino.carnVal
 
@@ -29,9 +25,9 @@ def stepMoveRight(dino):
 def combatSimulation(dinoOne, dinoTwo):
     # power calculations:
     powerOne = dinoOne.power * (dinoOne.currHealth/dinoOne.totalHealth) * \
-        random.randint(10, 100) * calcFeatureScalar(dinoOne) 
+        random.randint(10, 100) 
     powerTwo = dinoTwo.power * (dinoTwo.currHealth/dinoTwo.totalHealth) * \
-        random.randint(10, 100) * calcFeatureScalar(dinoTwo)
+        random.randint(10, 100)
 
     # generates for health calculations
     victorValue = random.randint(10, 200)

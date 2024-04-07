@@ -189,6 +189,12 @@ def goToGreensOnly(dino, obs):
         elif nearest_green_space[1] > dino.dino_y:
             return 'down'
     return random.choice(['left', 'right', 'up', 'down'])
+
+def randomBehav(dino, obs):
+    return random.choice(['left', 'right', 'up', 'down'])
+
+
+    
 #helperFunctions
 #dino is current dino we are looking at
 # observation = {
