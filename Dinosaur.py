@@ -125,14 +125,15 @@ class Dinosaur:
             50 * self.energyConsumptionModifier[self.traits['Size']] * self.energyConsumptionModifier[self.traits['Mobility']])
 
     def child(self, other):
-        if self.energy > 20:
-            new_traits = self.traits
-            for i in new_traits.values():
-                if i[1] == None:
-                    new_traits[i[0]] = other.traits[i[0]]
-            return Dinosaur(new_traits)
-        else:
-            return
+        new_traits = self.traits
+        for i in new_traits.values():
+            if i[1] == None:
+                new_traits[i[0]] = other.traits[i[0]]
+
+        youngling = Dinosaur(new_traits)
+        youngling.dino_color = ((self.dino_color[0] + other.dino_color[0]) // 2, (self.dino_color[1] + other.dino_color[1]) // 2, (self.dino_color[2] + other.dino_color[2]) // 2)
+        return youngling
+
     def calculateNextStep(self, obs, behaviorfunc):
         return behaviorfunc(self, obs)
 
@@ -189,15 +190,28 @@ def fiftyFftydinoPlans(dino, obs):
 
 def goToNearestDino(dino, obs):
     nearest_dino = calculate_nearest_other_dino(dino, obs)
+    actions = valid_movement_avoiding_walls(dino,obs)
     if nearest_dino:
         if nearest_dino[0] < dino.dino_x:
-            return 'left'
+            if 'left' not in actions:
+                return 'right'
+            else:
+                return 'left'
         elif nearest_dino[0] > dino.dino_x:
-            return 'right'
+            if 'right' not in actions:
+                return 'left'
+            else:
+                return 'right'
         elif nearest_dino[1] < dino.dino_y:
-            return 'up'
+            if 'up' not in actions:
+                return 'down'
+            else:
+                return 'up'
         elif nearest_dino[1] > dino.dino_y:
-            return 'down'
+            if 'down' not in actions:
+                return 'up'
+            else:
+                return 'down'
         
     return random.choice(['left', 'right', 'up', 'down'])
 
