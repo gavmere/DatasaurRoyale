@@ -7,20 +7,20 @@ def eatPlant(dino, calVal):
     dino.energy += calVal*dino.herbVal
 
 def stepStill(dino):
-    dino.energy -= 1*dino.energyConsumption
+    dino.energy -= 1*dino.energyConsumption / dino.speed
 
 def stepMoveUp(dino):
-    dino.energy -= 2*dino.energyConsumption
+    dino.energy -= 2*dino.energyConsumption / dino.speed
     
 
 def stepMoveDown(dino):
-    dino.energy -= 2*dino.energyConsumption
+    dino.energy -= 2*dino.energyConsumption / dino.speed
     
 def stepMoveLeft(dino):
-    dino.energy -= 2*dino.energyConsumption
+    dino.energy -= 2*dino.energyConsumption / dino.speed
 
 def stepMoveRight(dino):
-    dino.energy -= 2*dino.energyConsumption
+    dino.energy -= 2*dino.energyConsumption / dino.speed
 
 def combatSimulation(dinoOne, dinoTwo):
     # power calculations:

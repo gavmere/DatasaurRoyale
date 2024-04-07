@@ -30,7 +30,7 @@ class Dinosaur:
             'Tail': None,
         }
         self.traits = {**self.defaultTraits, **traits}
-
+        
         # Setting up energy
         self.energyModifier = {
             'Large': 1.5,
@@ -44,6 +44,20 @@ class Dinosaur:
         self.energy = int(100 * self.energyModifier[self.traits['Size']] * \
             self.energyModifier[self.traits['Mobility']] * \
             self.energyModifier[self.traits['Neck']])
+
+        # Setting up Speed
+        self.speedModifier = {
+            'Large' : -1,
+            'Medium' : 0,
+            'Small' : 1,
+            'Bipedal' : 1,
+            'Quadruped' : -1,
+            'Flying' : 1,
+            None : 0,
+            'Mobile Tail' : 1,
+            'Attack Tail' : -1
+        }
+        self.speed = 4 + self.speedModifier[self.traits['Size']] + self.speedModifier[self.traits['Mobility']] + self.speedModifier[self.traits['Tail']] 
 
         # Setting up Power
         self.powerModifier = {
@@ -209,6 +223,8 @@ def getStats(dino):
     statList += str(dino.energy)
     statList += ","
     statList += str(dino.energyConsumption)
+    statList += ","
+    statList += str(dino.speed)
     statList += ","
     statList += str(dino.power)
     statList += ","

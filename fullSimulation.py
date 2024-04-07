@@ -16,7 +16,7 @@ class Fullsimulation:
     score_color = (255, 255, 255)
     score_x = 10
     score_y = 10
-    defaultNumPlants = 40
+    defaultNumPlants = 20
 
     def __init__(self, autonomous=False, funmode = False):
         self.funmode = funmode
@@ -77,32 +77,32 @@ class Fullsimulation:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_LEFT] and dino.dino_x > 0:
                 dino.dino_x -= 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
             elif keys[pygame.K_RIGHT] and dino.dino_x < self.grid_width - 1:
                 dino.dino_x += 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
             elif keys[pygame.K_UP] and dino.dino_y > 0:
                 dino.dino_y -= 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
             elif keys[pygame.K_DOWN] and dino.dino_y < self.grid_height - 1:
                 dino.dino_y += 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
         else:
             if not action or action == "stay":
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
                 return
             if action == 'left' and dino.dino_x > 0:
                 dino.dino_x -= 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
             elif action == 'right' and dino.dino_x < self.grid_width - 1:
                 dino.dino_x += 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
             elif action == 'up' and dino.dino_y > 0:
                 dino.dino_y -= 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
             elif action == 'down' and dino.dino_y < self.grid_height - 1:
                 dino.dino_y += 1
-                dino.energy -= 1
+                dino.energy -= 4 / dino.speed
 
     def handle_dino_behavior(self, dino, observations):
         if not self.isAuto:
@@ -221,7 +221,9 @@ class Fullsimulation:
         other_dino_energy = []
         other_dino_herb = []
         other_dino_carn = []
+        other_dino_speed = []
         other_dino_behavior = []
+
 
         for dino in self.dinos:
             if (dino.dino_x, dino.dino_y) != (currDino.dino_x, currDino.dino_y):
@@ -232,6 +234,7 @@ class Fullsimulation:
                 other_dino_energy.append(dino.energy)
                 other_dino_carn.append(dino.carnVal)
                 other_dino_carn.append(dino.herbVal)
+                other_dino_speed.append(dino.speed)
                 other_dino_behavior.append(dino.dino_behavior)
 
         observation = {
@@ -245,7 +248,8 @@ class Fullsimulation:
             'other_dino_energy': other_dino_energy,
             'other_dino_herb': other_dino_herb,
             'other_dino_carn': other_dino_carn,
-            'other_dino_behavior': other_dino_behavior
+            'other_dino_behavior': other_dino_behavior,
+            'other_dino_speed' : other_dino_speed
         }
 
         return observation
