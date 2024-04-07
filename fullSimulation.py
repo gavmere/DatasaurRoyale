@@ -189,7 +189,7 @@ class Fullsimulation:
         pygame.display.flip()
     
     def reset_game(self):
-        print(f'generation {self.currGeneration}: ' + getStats(self.dinos[0]), file=self.logfile)
+        print(getStats(self.dinos[0]), file=self.logfile)
         self.dinos = []
         self.dino_pos = []
         self.behaviors = [goToGreensOnly, goToNearestDino, fiftyFftydinoPlans, cowardDino, randomBehav, paralyzed, copDino, colorblindDino, maxConsumption, minConsumption, greenPreferred, dinoPreferred, wallHugger, scavanger]

@@ -179,9 +179,9 @@ class Dinosaur:
         youngling = Dinosaur(Size = new_traits[0], Mouth = new_traits[1], Mobility = new_traits[2], Combat = new_traits[3], Neck = new_traits[4], Tail = new_traits[5])
         youngling.dino_color = ((self.dino_color[0] + other.dino_color[0]) // 2, (self.dino_color[1] + other.dino_color[1]) // 2, (self.dino_color[2] + other.dino_color[2]) // 2)
         mutation_behavior = random.randint(1,100)
-        if mutation_behavior < 55:
+        if mutation_behavior < 53:
             youngling.dino_behavior = self.dino_behavior
-        elif mutation_behavior < 95:
+        elif mutation_behavior < 98:
             youngling.dino_behavior = other.dino_behavior
         else:
             youngling.dino_behavior = random.choice(self.behaviors)
